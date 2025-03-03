@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { ArrowTopRightOnSquareIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline'
+import Cbutton from './interfaz/Cbutton';
 
 const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -141,12 +142,12 @@ const UserSubscription = () => {
                 {new Date(order.endDate) >= new Date() ? (
                   <>
                     <Link href={`/instances/${order.instanceId}`} passHref>
-                      <button
+                      <Cbutton
                         className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-lg font-semibold shadow-md w-full md:w-auto flex items-center justify-center space-x-2"
                       >
                         <ArrowRightCircleIcon className="h-6 w-6" />
                         <span>Acceder</span>
-                      </button>
+                      </Cbutton>
                     </Link>
                   </>
                 ) : (
