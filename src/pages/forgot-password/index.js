@@ -2,13 +2,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { useRouter } from 'next/router';
-import { Button, ButtonGroup } from "@heroui/button";
 import { Eye } from 'lucide-react';
-import { buttonSecondary, buttonPrimary } from '../../styles/button-type';
 
 import Layout from '../../components/layout/auth';
 
 import { getSession } from 'next-auth/react';
+import { Cbutton } from '../../components/interfaz/Cbutton';
 
 const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -90,22 +89,15 @@ export default function ForgotPassword() {
 
           <div>
             {/* Deshabilitar el botón de envío mientras se está enviando el formulario */}
-            <Button
-              radius="xl"
-              // className={`${buttonSecondary.className}`}
-              className={buttonSecondary.color}
+            <Cbutton
+              className="primary"
               type="submit"
-              text
               isLoading={isSubmitting}
-              // startContent={<Eye />}
-              // className={`text-white flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting
-              //   ? 'bg-gray-400 cursor-not-allowed'
-              //   : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)]'
-              //   }`}
-              disabled={isSubmitting} // Deshabilitar el botón si se está enviando el formulario
+              isSubmitting={isSubmitting}
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar correo de reinicio'}
-            </Button>
+              {isSubmitting ? "Enviando..." : "Enviar correo de reinicio"}
+            </Cbutton>
+
           </div>
         </form>
 
