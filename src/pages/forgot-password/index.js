@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { useRouter } from 'next/router';
-import { Eye } from 'lucide-react';
 
 import Layout from '../../components/layout/auth';
 
