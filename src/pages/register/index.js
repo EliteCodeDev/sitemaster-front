@@ -140,7 +140,7 @@ export default function SignUp() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function SignUp() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function SignUp() {
                   value={formData.password}
                   onChange={handleChange}
                   onFocus={handlePasswordFocus}
-                  className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
                 />
                 <button
                   type="button"
@@ -206,31 +206,31 @@ export default function SignUp() {
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {showPasswordConditions && (
                 <ul>
-                  <li className={`${passwordConditions.uppercase ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <li className={`${passwordConditions.uppercase ? 'text-[var(--app-primary)] dark:text-[var(--app-primary)]' : 'text-gray-500 dark:text-gray-400'}`}>
                     <div className="inline-flex items-center">
                       <CheckCircleIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                       Una letra mayúscula
                     </div>
                   </li>
-                  <li className={`${passwordConditions.lowercase ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <li className={`${passwordConditions.lowercase ? 'text-[var(--app-primary)] dark:text-[var(--app-primary)]' : 'text-gray-500 dark:text-gray-400'}`}>
                     <div className="inline-flex items-center">
                       <CheckCircleIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                       Una letra minúscula
                     </div>
                   </li>
-                  <li className={`${passwordConditions.number ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <li className={`${passwordConditions.number ? 'text-[var(--app-primary)] dark:text-[var(--app-primary)]' : 'text-gray-500 dark:text-gray-400'}`}>
                     <div className="inline-flex items-center">
                       <CheckCircleIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                       Un número
                     </div>
                   </li>
-                  <li className={`${passwordConditions.specialChar ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <li className={`${passwordConditions.specialChar ? 'text-[var(--app-primary)] dark:text-[var(--app-primary)]' : 'text-gray-500 dark:text-gray-400'}`}>
                     <div className="inline-flex items-center">
                       <CheckCircleIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                       Un carácter especial
                     </div>
                   </li>
-                  <li className={`${passwordConditions.length ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                  <li className={`${passwordConditions.length ? 'text-[var(--app-primary)] dark:text-[var(--app-primary)]' : 'text-gray-500 dark:text-gray-400'}`}>
                     <div className="inline-flex items-center">
                       <CheckCircleIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                       6 caracteres o más
@@ -244,7 +244,7 @@ export default function SignUp() {
               <button
                 type="submit"
                 disabled={isSubmitting || !isPasswordValid()}
-                className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${isSubmitting || !isPasswordValid() ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700 focus:ring-purple-600'
+                className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting || !isPasswordValid() ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)]'
                   }`}
               >
                 {isSubmitting ? (
@@ -267,7 +267,7 @@ export default function SignUp() {
             ¿Tienes una cuenta?{' '}
             <Link
               href="/login"
-              className="font-semibold leading-6 text-purple-600 hover:text-purple-500 dark:hover:text-purple-400"
+              className="font-semibold leading-6 text-[var(--app-primary)] hover:text-[var(--app-primary)] dark:hover:text-[var(--app-primary)]"
             >
               Iniciar sesión
             </Link>

@@ -51,7 +51,7 @@ const SubsPage = () => {
                     href="https://wazend.net/my-account/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-2 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-200"
+                    className="inline-flex items-center px-6 py-2 bg-[var(--app-primary)] text-white font-semibold rounded-lg shadow-md hover:bg-[var(--app-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] transition duration-200"
                 >
                     <span>Ir a gestionar suscripciones</span>
                     <ChevronRightIcon className="w-5 h-5 ml-2 text-white" />

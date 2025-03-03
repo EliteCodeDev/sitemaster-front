@@ -11,7 +11,7 @@ export default function Example() {
             description: "¿Fuiste parte del Master de Inteligencia Artificial? Activa tu prueba gratis en el botón de abajo.",
             buttonText: "Activar prueba gratis",
             buttonUrl: checkoutUrl,
-            buttonColor: "bg-purple-600 hover:bg-purple-500 focus-visible:outline-purple-600"
+            buttonColor: "bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus-visible:outline-[var(--app-primary)]"
         },
         {
             title: "🛟 ¿Necesitas tutoriales?",
@@ -23,21 +23,21 @@ export default function Example() {
     ];
 
     return (
-            <div className="grid gap-4 lg:grid-cols-2">
-                {cards.map((card, index) => (
-                    <div key={index} className="flex flex-col bg-white rounded-xl p-6 shadow-lg gap-4">
-                        <p className="text-xl font-semibold tracking-tight text-gray-950">{card.title}</p>
-                        <p className="text-base text-gray-600">{card.description}</p>
-                        <a
-                            href={card.buttonUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`mt-2 w-full text-center rounded-lg px-4 py-3 text-base font-semibold text-white shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 ${card.buttonColor}`}
-                        >
-                            {card.buttonText}
-                        </a>
-                    </div>
-                ))}
-            </div>
+        <div className="grid gap-4 lg:grid-cols-2">
+            {cards.map((card, index) => (
+                <div key={index} className="flex flex-col bg-white rounded-xl p-6 shadow-lg gap-4">
+                    <p className="text-xl font-semibold tracking-tight text-gray-950">{card.title}</p>
+                    <p className="text-base text-gray-600">{card.description}</p>
+                    <a
+                        href={card.buttonUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`mt-2 w-full text-center rounded-lg px-4 py-3 text-base font-semibold text-white shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 ${card.buttonColor}`}
+                    >
+                        {card.buttonText}
+                    </a>
+                </div>
+            ))}
+        </div>
     );
 }

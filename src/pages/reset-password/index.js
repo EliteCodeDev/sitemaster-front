@@ -76,7 +76,7 @@ export default function ResetPassword() {
                 onChange={(e) => setPassword(e.target.value)}
                 minLength={6} // Validación de longitud mínima
                 required
-                className="block w-full rounded-md border-0 py-1.5 pr-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pr-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
               />
               <button
                 type="button"
@@ -110,7 +110,7 @@ export default function ResetPassword() {
                 onChange={(e) => setpasswordConfirmation(e.target.value)}
                 minLength={6} // Validación de longitud mínima
                 required
-                className="block w-full rounded-md border-0 py-1.5 pr-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 pr-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
               />
               <button
                 type="button"
@@ -131,8 +131,8 @@ export default function ResetPassword() {
             type="submit"
             disabled={loading} // Desactivar el botón mientras se carga la solicitud
             className={`text-white flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${loading
-                ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-purple-600 hover:bg-purple-700 focus:ring-purple-600'
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)]'
               }`}
           >
             {loading ? 'Cargando...' : 'Restablecer contraseña'}
@@ -143,7 +143,7 @@ export default function ResetPassword() {
         <p className="mt-10 text-sm text-center leading-6 text-gray-500 dark:text-gray-400">
           <Link
             href="/login"
-            className="font-semibold leading-6 text-purple-600 hover:text-purple-500 dark:hover:text-purple-400"
+            className="font-semibold leading-6 text-[var(--app-primary)] hover:text-[var(--app-primary)] dark:hover:text-[var(--app-primary)]"
           >
             Volver al inicio de sesión
           </Link>

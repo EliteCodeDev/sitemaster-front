@@ -134,13 +134,12 @@ const ProxySettings = ({ name }) => {
         <Switch
           checked={proxyData.enabled}
           onChange={toggleEnabled}
-          className={`${proxyData.enabled ? "bg-purple-600" : "bg-gray-300"}
+          className={`${proxyData.enabled ? "bg-[var(--app-primary)]" : "bg-gray-300"}
             relative inline-flex h-6 w-11 items-center rounded-full transition-all`}
         >
           <span
-            className={`${
-              proxyData.enabled ? "translate-x-6" : "translate-x-1"
-            } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+            className={`${proxyData.enabled ? "translate-x-6" : "translate-x-1"
+              } inline-block h-4 w-4 transform rounded-full bg-white transition`}
           />
         </Switch>
       </div>
@@ -151,7 +150,7 @@ const ProxySettings = ({ name }) => {
           <label className="block text-sm font-medium text-gray-700 mb-1">Protocol</label>
           <select
             name="protocol"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[var(--app-primary)]"
             value={proxyData.protocol}
             onChange={handleChange}
           >
@@ -164,7 +163,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="text"
             name="host"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[var(--app-primary)]"
             value={proxyData.host}
             onChange={handleChange}
           />
@@ -177,7 +176,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="number"
             name="port"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[var(--app-primary)]"
             value={proxyData.port}
             onChange={handleChange}
           />
@@ -190,7 +189,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="text"
             name="username"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[var(--app-primary)]"
             value={proxyData.username}
             onChange={handleChange}
           />
@@ -200,7 +199,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="text"
             name="password"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[var(--app-primary)]"
             value={proxyData.password}
             onChange={handleChange}
           />
@@ -211,9 +210,8 @@ const ProxySettings = ({ name }) => {
       <button
         onClick={saveSettings}
         disabled={isLoading}
-        className={`mt-4 px-4 py-2 rounded-md text-white transition-all duration-200 ${
-          isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-500"
-        }`}
+        className={`mt-4 px-4 py-2 rounded-md text-white transition-all duration-200 ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-[var(--app-primary)] hover:bg-[var(--app-primary)]"
+          }`}
       >
         {isLoading ? "Guardando..." : "Guardar"}
       </button>

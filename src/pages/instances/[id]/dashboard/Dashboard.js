@@ -31,7 +31,7 @@ const LayoutInstance = ({ instanceId }) => {
   );
 
   if (error) return <p>Error: {error.message}</p>;
-  if (!instanceData) return <Preload/>;
+  if (!instanceData) return <Preload />;
   if (instanceData.length === 0) return <p>No instance data available</p>;
 
   const instance = instanceData[0];
@@ -52,9 +52,9 @@ const LayoutInstance = ({ instanceId }) => {
         {/* <h1 className="text-2xl font-bold tracking-tight text-gray-900">Instancia #{instance.name}</h1> */}
 
 
-       {/* Seccion de conexion*/}
+        {/* Seccion de conexion*/}
 
-       {instance.connectionStatus === 'open' && (
+        {instance.connectionStatus === 'open' && (
           <section className='rounded-lg bg-white p-6 shadow-[0_0_5px_rgba(0,0,0,0.1)]'>
             <h2 className='mb-4 text-xl font-semibold'>Tu número de WhatsApp conectado</h2>
             <div className="group block flex-shrink-0">
@@ -132,7 +132,7 @@ const LayoutInstance = ({ instanceId }) => {
                 <div className='flex align-center justify-between'>
                   <div className='mb-8 md:mb-11'>
                     <h3 className='text-sm font-base'>Nombre de instancia</h3>
-                    <p className='text-lg font-medium text-purple-600'>{instance.name}</p>
+                    <p className='text-lg font-medium text-[var(--app-primary)]'>{instance.name}</p>
                   </div>
 
                   <div className='text-sm font-medium pt-5'>
@@ -142,7 +142,7 @@ const LayoutInstance = ({ instanceId }) => {
                         : instance.connectionStatus === 'connecting'
                           ? 'bg-amber-500 text-white'
                           : instance.connectionStatus === 'open'
-                            ? 'bg-purple-500 text-white'
+                            ? 'bg-[var(--app-primary)] text-white'
                             : 'bg-cyan-100'
                         }`}
                     >
@@ -184,7 +184,7 @@ const LayoutInstance = ({ instanceId }) => {
                 <div className='mb-8 md:mb-11'>
                   <h3 className='text-sm font-base'>Token (ApiKey)</h3>
                   <div className="flex items-center space-x-2">
-                    <p className='text-lg font-medium text-purple-600'>
+                    <p className='text-lg font-medium text-[var(--app-primary)]'>
                       {isTokenVisible ? instance.token : '••••••••••'}
                     </p>
                     <button
@@ -273,7 +273,7 @@ const LayoutInstance = ({ instanceId }) => {
 
         {/* Seccion de ajustes*/}
         <WebhookControl instanceName={instance.name} />
- 
+
 
       </div>
     </>

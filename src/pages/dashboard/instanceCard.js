@@ -122,12 +122,12 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
       <div className="mt-4 flex justify-between items-center">
         <p
           className={`text-sm font-semibold px-3 py-1 rounded-2xl text-white ${instance.connectionStatus === "open"
-              ? "bg-purple-600"
-              : instance.connectionStatus === "connecting"
-                ? "bg-orange-500"
-                : instance.connectionStatus === "close"
-                  ? "bg-red-600"
-                  : "bg-gray-600"
+            ? "bg-[var(--app-primary)]"
+            : instance.connectionStatus === "connecting"
+              ? "bg-orange-500"
+              : instance.connectionStatus === "close"
+                ? "bg-red-600"
+                : "bg-gray-600"
             }`}
         >
           {instance.connectionStatus === "open"

@@ -95,14 +95,14 @@ const InstancePage = ({ name }) => {
     };
 
     if (error) return <div>Error al cargar configuraciones.</div>;
-    if (!data) return  <Preload />;
+    if (!data) return <Preload />;
 
     return (
         <>
             <div className="rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)] p-6">
                 <div className="space-y-4">
 
-                <p className='mb-4 text-lg font-semibold'>Ajustes de WhatsApp</p>
+                    <p className='mb-4 text-lg font-semibold'>Ajustes de WhatsApp</p>
                     {/* Rechazar llamadas con el campo de mensaje justo debajo */}
                     <div className="py-3 border-b">
                         <div className="flex justify-between items-center">
@@ -113,7 +113,7 @@ const InstancePage = ({ name }) => {
                             <Switch
                                 checked={settings.rejectCall}
                                 onChange={() => toggleSetting('rejectCall')}
-                                className={`${settings.rejectCall ? 'bg-purple-600' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
+                                className={`${settings.rejectCall ? 'bg-[var(--app-primary)]' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
                             >
                                 <span className="sr-only">Toggle {settingDescriptions.rejectCall.title}</span>
                                 <span
@@ -130,7 +130,7 @@ const InstancePage = ({ name }) => {
                                     value={settings.msgCall}
                                     onChange={handleInputChange}
                                     placeholder="Escribe tu mensaje aquí..."
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)]"
                                 />
                             </div>
                         )}
@@ -147,7 +147,7 @@ const InstancePage = ({ name }) => {
                                 <Switch
                                     checked={value}
                                     onChange={() => toggleSetting(key)}
-                                    className={`${value ? 'bg-purple-600' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
+                                    className={`${value ? 'bg-[var(--app-primary)]' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
                                 >
                                     <span className="sr-only">Toggle {settingDescriptions[key]?.title}</span>
                                     <span
@@ -162,7 +162,7 @@ const InstancePage = ({ name }) => {
                 <button
                     onClick={updateSettings}
                     disabled={isLoading}
-                    className={`mt-4 px-4 py-2 rounded-md text-white ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-600'}`}
+                    className={`mt-4 px-4 py-2 rounded-md text-white ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)]'}`}
                 >
                     {isLoading ? 'Guardando...' : 'Guardar'}
                 </button>

@@ -89,8 +89,8 @@ const UserSubscription = () => {
             {/* Titulo y fecha */}
             <div className="flex justify-between items-center mb-2">
               <p className="text-lg font-bold">Wazend {subscription.type} (#{subscription.id})</p>
-              <div className="bg-purple-200 px-2 py-1 rounded-sm inline-block">
-                <p className="text-purple-700 text-xs">
+              <div className="bg-[var(--app-primary)] px-2 py-1 rounded-sm inline-block">
+                <p className="text-[var(--app-primary)] text-xs">
                   Expira el{' '}
                   {new Date(subscription.endDate).toLocaleDateString('es-ES', {
                     day: '2-digit',

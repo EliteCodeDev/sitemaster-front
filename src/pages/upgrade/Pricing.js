@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState } from 'react';
 import { useSession } from 'next-auth/react'; // Importa el hook de NextAuth
 import { CheckIcon } from '@heroicons/react/20/solid';
 
@@ -73,7 +73,7 @@ export default function Example() {
                     <div
                         key={tier.id}
                         className={classNames(
-                            tier.featured ? 'bg-gradient-to-b from-purple-100 to-white via-white' : 'bg-white',
+                            tier.featured ? 'bg-gradient-to-b from-[var(--app-primary)] to-white via-white' : 'bg-white',
                             'rounded-lg p-8 ring-1 ring-gray-200 xl:p-10'
                         )}
                     >
@@ -92,11 +92,10 @@ export default function Example() {
                             <button
                                 onClick={() => handleCheckout(tier.url)}
                                 disabled={loading}
-                                className={`w-full mt-6 block rounded-md py-3 px-3 text-center text-md font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                                    loading
+                                className={`w-full mt-6 block rounded-md py-3 px-3 text-center text-md font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${loading
                                         ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                                        : 'bg-purple-700 text-white shadow-sm hover:bg-purple-600 focus-visible:outline-purple-700'
-                                }`}
+                                        : 'bg-[var(--app-primary)] text-white shadow-sm hover:bg-[var(--app-primary)] focus-visible:outline-[var(--app-primary)]'
+                                    }`}
                             >
                                 {loading ? 'Cargando...' : 'Seleccionar plan'}
                             </button>
@@ -105,7 +104,7 @@ export default function Example() {
                                 <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50 z-50">
                                     <div className="bg-white p-8 rounded-lg shadow-lg">
                                         <div className="flex justify-center items-center">
-                                            <div className="w-10 h-10 border-4 border-t-purple-600 border-gray-300 rounded-full animate-spin" />
+                                            <div className="w-10 h-10 border-4 border-t-[var(--app-primary)] border-gray-300 rounded-full animate-spin" />
                                         </div>
                                         <p className="text-center mt-4">Redirigiendo al checkout...</p>
                                     </div>
@@ -115,7 +114,7 @@ export default function Example() {
                         <ul role="list" className="mt-8 space-y-3 text-sm leading-6 xl:mt-10 text-black">
                             {tier.features.map((feature) => (
                                 <li key={feature} className="flex gap-x-3">
-                                    <CheckIcon className="text-purple-700 h-6 w-6 flex-none rounded-full bg-purple-50 p-1" aria-hidden="true" />
+                                    <CheckIcon className="text-[var(--app-primary)] h-6 w-6 flex-none rounded-full bg-[var(--app-primary)] p-1" aria-hidden="true" />
                                     {feature}
                                 </li>
                             ))}

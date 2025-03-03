@@ -118,18 +118,18 @@ const UserSubscription = () => {
 
             {/* Segunda Parte: Contenido del plan y fecha */}
             <div className="md:w-1/3 flex-grow">
-              {/* <div className="flex flex-row items-center space-x-2 text-purple-600">
+              {/* <div className="flex flex-row items-center space-x-2 text-[var(--app-primary)]">
                 <a href={`https://${order.url}`} target="_blank" rel="noopener noreferrer" className="text-lg font-semibold hover:underline">Wazend {order.plan}</a>
-                <ArrowTopRightOnSquareIcon className='h-4 w-4 text-purple-700' />
+                <ArrowTopRightOnSquareIcon className='h-4 w-4 text-[var(--app-primary)]' />
               </div> */}
 
-              {/* <div className="flex flex-row items-center space-x-2 text-purple-600">
+              {/* <div className="flex flex-row items-center space-x-2 text-[var(--app-primary)]">
                 <p className="text-lg font-semibold hover:underline">Wazend {order.plan}</p>
               </div> */}
 
               <p className="text-2xl font-bold">Wazend {order.type} (#{order.id})</p>
               <div className="flex flex-row items-center space-x-2 mt-1 text-gray-500">
-                <div className={`w-3 h-3 rounded-full ${order.statusPlan === 'pending' ? 'bg-yellow-500' : order.statusPlan === 'active' ? 'bg-purple-500' : order.statusPlan === 'expired' ? 'bg-red-500' : 'bg-gray-500'}`} />
+                <div className={`w-3 h-3 rounded-full ${order.statusPlan === 'pending' ? 'bg-yellow-500' : order.statusPlan === 'active' ? 'bg-[var(--app-primary)]' : order.statusPlan === 'expired' ? 'bg-red-500' : 'bg-gray-500'}`} />
                 <p className="text-sm font-bold uppercase">PLAN {order.plan}</p>
                 <p className="text-sm">Expira el {new Date(order.endDate).toLocaleDateString('es-ES')}</p>
               </div>
