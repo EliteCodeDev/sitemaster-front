@@ -75,7 +75,7 @@ const FetchStrapi = () => {
         </p>
         <Link
           href="/upgrade/"
-          className="mt-6 inline-flex items-center rounded-lg bg-emerald-600 px-5 py-3 text-white text-base font-medium shadow-md hover:bg-emerald-500 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+          className="mt-6 inline-flex items-center rounded-lg bg-purple-600 px-5 py-3 text-white text-base font-medium shadow-md hover:bg-purple-500 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
         >
           <PlusIcon className="h-6 w-6" aria-hidden="true" />
           <span className="ml-3">Crea una instancia</span>

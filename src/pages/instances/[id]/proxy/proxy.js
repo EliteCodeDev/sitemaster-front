@@ -134,7 +134,7 @@ const ProxySettings = ({ name }) => {
         <Switch
           checked={proxyData.enabled}
           onChange={toggleEnabled}
-          className={`${proxyData.enabled ? "bg-green-600" : "bg-gray-300"}
+          className={`${proxyData.enabled ? "bg-purple-600" : "bg-gray-300"}
             relative inline-flex h-6 w-11 items-center rounded-full transition-all`}
         >
           <span
@@ -151,7 +151,7 @@ const ProxySettings = ({ name }) => {
           <label className="block text-sm font-medium text-gray-700 mb-1">Protocol</label>
           <select
             name="protocol"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
             value={proxyData.protocol}
             onChange={handleChange}
           >
@@ -164,7 +164,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="text"
             name="host"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
             value={proxyData.host}
             onChange={handleChange}
           />
@@ -177,7 +177,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="number"
             name="port"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
             value={proxyData.port}
             onChange={handleChange}
           />
@@ -190,7 +190,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="text"
             name="username"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
             value={proxyData.username}
             onChange={handleChange}
           />
@@ -200,7 +200,7 @@ const ProxySettings = ({ name }) => {
           <input
             type="text"
             name="password"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500"
             value={proxyData.password}
             onChange={handleChange}
           />
@@ -212,7 +212,7 @@ const ProxySettings = ({ name }) => {
         onClick={saveSettings}
         disabled={isLoading}
         className={`mt-4 px-4 py-2 rounded-md text-white transition-all duration-200 ${
-          isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-emerald-600 hover:bg-emerald-500"
+          isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-500"
         }`}
       >
         {isLoading ? "Guardando..." : "Guardar"}

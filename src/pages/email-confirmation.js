@@ -8,7 +8,7 @@ export default function EmailConfirm() {
   return (
     <Layout>
       <div className="bg-white dark:bg-gray-800 p-4 border border-gray-300 dark:border-gray-700 rounded-lg max-w-md w-full text-left mt-8 flex items-start">
-        <CheckCircleIcon className="h-auto w-20 text-green-400 dark:text-green-500 mr-3" />
+        <CheckCircleIcon className="h-auto w-20 text-purple-400 dark:text-purple-500 mr-3" />
         <div>
           <p className="text-balance text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">
             Te has registrado correctamente.

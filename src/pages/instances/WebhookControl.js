@@ -86,7 +86,7 @@ const WebhookControl = ({ instanceName }) => {
                     type='text'
                     value={webhookUrl}
                     onChange={(e) => setWebhookUrl(e.target.value)}
-                    className='w-full rounded-md border border-gray-300 p-2 focus:border-emerald-600 focus:ring-emerald-600 focus:outline-none focus:ring-1'
+                    className='w-full rounded-md border border-gray-300 p-2 focus:border-purple-600 focus:ring-purple-600 focus:outline-none focus:ring-1'
                 />
             </div>
 
@@ -98,7 +98,7 @@ const WebhookControl = ({ instanceName }) => {
                             <input
                                 type='checkbox'
                                 id={event}
-                                className='mr-2 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600'
+                                className='mr-2 h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-600'
                                 checked={selectedEvents.includes(event)}
                                 onChange={() => handleEventChange(event)}
                             />
@@ -120,7 +120,7 @@ const WebhookControl = ({ instanceName }) => {
             <div className='px-4 pb-4'>
                 <button
                     onClick={handleSave}
-                    className={`rounded-md px-4 py-2 font-medium text-white ${webhookUrl ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-gray-400 cursor-not-allowed'
+                    className={`rounded-md px-4 py-2 font-medium text-white ${webhookUrl ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 cursor-not-allowed'
                         }`}
                     disabled={!webhookUrl} // Deshabilita el botón si Webhook URL está vacío
                 >

@@ -94,14 +94,14 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           currentPath === item.href
-                            ? "border-emerald-500 text-gray-900 dark:text-white"
+                            ? "border-purple-500 text-gray-900 dark:text-white"
                             : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-200",
                           "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
                         )}
                         aria-current={currentPath === item.href ? "page" : undefined}
                         target={item.external ? "_blank" : undefined}
                       >
-                        <span className={item.trial ? "bg-green-600 text-white px-2 py-1 rounded-lg" : ""}>
+                        <span className={item.trial ? "bg-purple-600 text-white px-2 py-1 rounded-lg" : ""}>
                           {item.name}
                         </span>
                       </Link>
@@ -122,7 +122,7 @@ export default function Navbar() {
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
                         <div>
-                          <Menu.Button className="relative flex rounded-full bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2">
+                          <Menu.Button className="relative flex rounded-full bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                             <span className="sr-only">Open user menu</span>
                             <LogoGravatar email={session.user.email} size={40} />
                           </Menu.Button>
@@ -170,7 +170,7 @@ export default function Navbar() {
 
                 {/* Botón menú móvil */}
                 <div className="-mr-2 flex items-center sm:hidden">
-                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
                     <span className="sr-only">Open main menu</span>
                     {open ? <XMarkIcon className="block h-6 w-6" aria-hidden="true" /> : <Bars3Icon className="block h-6 w-6" aria-hidden="true" />}
                   </Disclosure.Button>
@@ -189,7 +189,7 @@ export default function Navbar() {
                       href={item.href}
                       className={classNames(
                         currentPath === item.href
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-gray-800 dark:text-white"
+                          ? "border-purple-500 bg-purple-50 text-purple-700 dark:bg-gray-800 dark:text-white"
                           : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200",
                         "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"
                       )}

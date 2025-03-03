@@ -132,7 +132,7 @@ const LayoutInstance = ({ instanceId }) => {
                 <div className='flex align-center justify-between'>
                   <div className='mb-8 md:mb-11'>
                     <h3 className='text-sm font-base'>Nombre de instancia</h3>
-                    <p className='text-lg font-medium text-green-600'>{instance.name}</p>
+                    <p className='text-lg font-medium text-purple-600'>{instance.name}</p>
                   </div>
 
                   <div className='text-sm font-medium pt-5'>
@@ -142,7 +142,7 @@ const LayoutInstance = ({ instanceId }) => {
                         : instance.connectionStatus === 'connecting'
                           ? 'bg-amber-500 text-white'
                           : instance.connectionStatus === 'open'
-                            ? 'bg-green-500 text-white'
+                            ? 'bg-purple-500 text-white'
                             : 'bg-cyan-100'
                         }`}
                     >
@@ -184,7 +184,7 @@ const LayoutInstance = ({ instanceId }) => {
                 <div className='mb-8 md:mb-11'>
                   <h3 className='text-sm font-base'>Token (ApiKey)</h3>
                   <div className="flex items-center space-x-2">
-                    <p className='text-lg font-medium text-green-600'>
+                    <p className='text-lg font-medium text-purple-600'>
                       {isTokenVisible ? instance.token : '••••••••••'}
                     </p>
                     <button

@@ -80,7 +80,7 @@ export default function ForgotPassword (){
             onChange={(e) => setEmail(e.target.value)}
             placeholder="tu@ejemplo.com"
             required
-            className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
           />
         </div>
       </div>
@@ -89,10 +89,10 @@ export default function ForgotPassword (){
         {/* Deshabilitar el botón de envío mientras se está enviando el formulario */}
         <button
           type="submit"
-          className={`text-white flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 ${
+          className={`text-white flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
             isSubmitting
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-600'
+              : 'bg-purple-600 hover:bg-purple-700 focus:ring-purple-600'
           }`}
           disabled={isSubmitting} // Deshabilitar el botón si se está enviando el formulario
         >
@@ -105,7 +105,7 @@ export default function ForgotPassword (){
       ¿Ya tienes una cuenta?{' '}
       <Link
         href="/login"
-        className="font-semibold leading-6 text-emerald-600 hover:text-emerald-500 dark:hover:text-emerald-400"
+        className="font-semibold leading-6 text-purple-600 hover:text-purple-500 dark:hover:text-purple-400"
       >
         Iniciar sesión
       </Link>

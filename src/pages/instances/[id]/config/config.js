@@ -113,7 +113,7 @@ const InstancePage = ({ name }) => {
                             <Switch
                                 checked={settings.rejectCall}
                                 onChange={() => toggleSetting('rejectCall')}
-                                className={`${settings.rejectCall ? 'bg-emerald-600' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
+                                className={`${settings.rejectCall ? 'bg-purple-600' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
                             >
                                 <span className="sr-only">Toggle {settingDescriptions.rejectCall.title}</span>
                                 <span
@@ -130,7 +130,7 @@ const InstancePage = ({ name }) => {
                                     value={settings.msgCall}
                                     onChange={handleInputChange}
                                     placeholder="Escribe tu mensaje aquí..."
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                                 />
                             </div>
                         )}
@@ -147,7 +147,7 @@ const InstancePage = ({ name }) => {
                                 <Switch
                                     checked={value}
                                     onChange={() => toggleSetting(key)}
-                                    className={`${value ? 'bg-emerald-600' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
+                                    className={`${value ? 'bg-purple-600' : 'bg-gray-300'} relative inline-flex h-6 w-11 items-center rounded-full`}
                                 >
                                     <span className="sr-only">Toggle {settingDescriptions[key]?.title}</span>
                                     <span
@@ -162,7 +162,7 @@ const InstancePage = ({ name }) => {
                 <button
                     onClick={updateSettings}
                     disabled={isLoading}
-                    className={`mt-4 px-4 py-2 rounded-md text-white ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-emerald-600'}`}
+                    className={`mt-4 px-4 py-2 rounded-md text-white ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-600'}`}
                 >
                     {isLoading ? 'Guardando...' : 'Guardar'}
                 </button>

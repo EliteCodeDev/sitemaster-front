@@ -12,13 +12,13 @@ export default function Index() {
                 {/* Tabs */}
                 <button
                     onClick={() => setActiveTab('subscriptions')}
-                    className={`px-4 py-2 font-medium rounded-lg ${activeTab === 'subscriptions' ? 'bg-emerald-600 text-white' : 'bg-gray-200'}`}
+                    className={`px-4 py-2 font-medium rounded-lg ${activeTab === 'subscriptions' ? 'bg-purple-600 text-white' : 'bg-gray-200'}`}
                 >
                     Suscripciones
                 </button>
                 <button
                     onClick={() => setActiveTab('billing')}
-                    className={`px-4 py-2 rounded-lg ${activeTab === 'billing' ? 'bg-emerald-600 text-white' : 'bg-gray-200'}`}
+                    className={`px-4 py-2 rounded-lg ${activeTab === 'billing' ? 'bg-purple-600 text-white' : 'bg-gray-200'}`}
                 >
                     Historial de pagos
                 </button>

@@ -11,7 +11,7 @@ export default function Example() {
             description: "¿Fuiste parte del Master de Inteligencia Artificial? Activa tu prueba gratis en el botón de abajo.",
             buttonText: "Activar prueba gratis",
             buttonUrl: checkoutUrl,
-            buttonColor: "bg-emerald-600 hover:bg-emerald-500 focus-visible:outline-emerald-600"
+            buttonColor: "bg-purple-600 hover:bg-purple-500 focus-visible:outline-purple-600"
         },
         {
             title: "🛟 ¿Necesitas tutoriales?",

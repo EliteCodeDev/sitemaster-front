@@ -66,7 +66,7 @@ export default function SignIn() {
                 autoComplete="email"
                 placeholder="tu@ejemplo.com"
                 required
-                className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function SignIn() {
               <div className="text-sm">
                 <Link
                   href="/forgot-password"
-                  className="font-normal text-emerald-600 hover:text-emerald-500 dark:hover:text-emerald-400"
+                  className="font-normal text-purple-600 hover:text-purple-500 dark:hover:text-purple-400"
                 >
                   ¿Has olvidado tu contraseña?
                 </Link>
@@ -98,7 +98,7 @@ export default function SignIn() {
                 onChange={(e) => setPassword(e.target.value)}
                 minLength={6}
                 required
-                className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
               />
               <button
                 type="button"
@@ -118,7 +118,7 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={isSubmitting} // Bloquear el botón de enviar mientras se envía el formulario
-              className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-600'
+              className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700 focus:ring-purple-600'
                 }`}
             >
               {isSubmitting ? (
@@ -140,7 +140,7 @@ export default function SignIn() {
           ¿No tienes una cuenta?{' '}
           <Link
             href="/register"
-            className="font-semibold leading-6 text-emerald-600 hover:text-emerald-500 dark:hover:text-emerald-400"
+            className="font-semibold leading-6 text-purple-600 hover:text-purple-500 dark:hover:text-purple-400"
           >
             Regístrate ahora
           </Link>
