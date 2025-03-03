@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import { Button, ButtonGroup } from "@heroui/button";
 export default function Cbutton({
   children, // Se agrega children
   classType,
@@ -10,6 +9,8 @@ export default function Cbutton({
   type,
   radius,
   onClick,
+  startContent,
+  endContent,
 }) {
   const styles = {
     primary: {
@@ -20,8 +21,9 @@ export default function Cbutton({
       className:
         "bg-[var(--app-secondary)] hover:bg-[var(--app-secondary)] focus:ring-[var(--app-secondary)] text-white w-full",
     },
-    buttonPrimary: {
-      className: "bg-primary-500 text-white",
+    auth: {
+      className:
+        "flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent",
     },
   };
 
@@ -33,6 +35,8 @@ export default function Cbutton({
       isLoading={isLoading}
       disabled={isSubmitting} // Deshabilitar el botón si se está enviando el formulario
       onPress={onClick}
+      startContent={startContent}
+      endContent={endContent}
     >
       {children}
     </Button>
