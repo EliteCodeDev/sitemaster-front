@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@heroui/button": "^2.2.15",
+    "@heroui/react": "^2.7.4",
     "@heroui/system": "^2.4.11",
     "@heroui/theme": "^2.4.11",
     "@radix-ui/react-dropdown-menu": "^2.1.5",
