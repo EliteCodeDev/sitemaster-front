@@ -7,8 +7,6 @@ import Layout from '../../components/layout/auth';
 
 import { getSession } from 'next-auth/react';
 import Cbutton from '../../components/interfaz/Cbutton';
-import Caccordeon from '../../components/interfaz/Caccordion';
-import Calert from '../../components/interfaz/Calert';
 
 const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
