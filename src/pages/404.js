@@ -17,7 +17,7 @@ export default function Error404() {
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <Link
                                 href="/"
-                                className="rounded-md bg-[var(--app-primary)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[var(--app-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
+                                className="rounded-md bg-[var(--app-primary)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[var(--app-primary-hovered)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
                             >
                                 Volver al inicio
                             </Link>

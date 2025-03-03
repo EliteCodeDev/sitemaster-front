@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { ExclamationTriangleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { toast } from 'sonner';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 const DeleteButton = ({ documentId, instanceName }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,7 +51,7 @@ const DeleteButton = ({ documentId, instanceName }) => {
       </button>
 
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => {}}>
+        <Dialog as="div" className="relative z-10" onClose={() => { }}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -76,14 +77,16 @@ const DeleteButton = ({ documentId, instanceName }) => {
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button
+                    <Cbutton
                       type="button"
                       className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => setOpen(false)}
+                      endContent={
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      }
                     >
                       <span className="sr-only">Cerrar</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
+                    </Cbutton>
                   </div>
                   <div className="sm:flex sm:items-start">
                     <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -101,22 +104,22 @@ const DeleteButton = ({ documentId, instanceName }) => {
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button
+                    <Cbutton
                       type="button"
                       className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                       onClick={handleDelete}
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Eliminando..." : "Eliminar"}
-                    </button>
-                    <button
+                    </Cbutton>
+                    <Cbutton
                       type="button"
                       className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                       onClick={() => setOpen(false)}
                       disabled={isSubmitting}
                     >
                       Cancelar
-                    </button>
+                    </Cbutton>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

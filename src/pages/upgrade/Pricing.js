@@ -93,8 +93,8 @@ export default function Example() {
                                 onClick={() => handleCheckout(tier.url)}
                                 disabled={loading}
                                 className={`w-full mt-6 block rounded-md py-3 px-3 text-center text-md font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${loading
-                                        ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                                        : 'bg-[var(--app-primary)] text-white shadow-sm hover:bg-[var(--app-primary)] focus-visible:outline-[var(--app-primary)]'
+                                    ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                                    : 'bg-[var(--app-primary)] text-white shadow-sm hover:bg-[var(--app-primary-hovered)] focus-visible:outline-[var(--app-primary)]'
                                     }`}
                             >
                                 {loading ? 'Cargando...' : 'Seleccionar plan'}

@@ -1,5 +1,36 @@
 import React from "react";
-
+import Image from "next/image";
+import Link from "next/link";
+export function MainIcon() {
+  return (
+    <div className="flex flex-shrink-0 items-center">
+      <Link href="/">
+        <Image
+          className="block h-8 w-auto lg:hidden dark:hidden"
+          src="/images/icon-dark.svg"
+          alt="Wazend Logo"
+          width={236}
+          height={60}
+        />
+        <Image
+          className="hidden h-8 w-auto lg:block dark:hidden"
+          src="/images/icon-dark.svg"
+          alt="Wazend Logo"
+          width={236}
+          height={60}
+        />
+        {/* Logo para modo oscuro */}
+        <Image
+          className="hidden dark:block h-8 w-auto"
+          src="/images/icon-light.svg"
+          alt="Wazend Logo"
+          width={236}
+          height={60}
+        />
+      </Link>
+    </div>
+  );
+}
 export function GoogleIcon() {
   return (
     <svg className="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24">

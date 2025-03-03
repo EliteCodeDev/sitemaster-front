@@ -1,3 +1,4 @@
+import Cbutton from '@/components/interfaz/Cbutton';
 import { CommandLineIcon } from '@heroicons/react/24/outline';
 import { UserCircleIcon, Cog6ToothIcon, DocumentTextIcon, SignalIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
@@ -25,7 +26,7 @@ export default function Profile({ children }) {
         <div className="w-full md:w-1/5">
           <div className="flex flex-col gap-2">
             {menuItems.map((item) => (
-              <button
+              <Cbutton
                 key={item.name}
                 onClick={() => router.push(item.path)}
                 className={`w-full px-2 py-2.5 text-left text-sm font-medium rounded-md flex items-center gap-x-2 transition-colors duration-200 ease-in-out border-l-0 ${currentRoute === item.path
@@ -35,7 +36,7 @@ export default function Profile({ children }) {
               >
                 <item.icon className={`h-5 w-5 ${currentRoute === item.path ? 'text-[var(--app-primary)]' : 'text-gray-700'}`} strokeWidth="2" />
                 {item.name}
-              </button>
+              </Cbutton>
             ))}
           </div>
         </div>

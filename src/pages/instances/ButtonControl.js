@@ -1,4 +1,5 @@
 
+import Cbutton from '@/components/interfaz/Cbutton';
 import { toast } from 'sonner';
 
 const ButtonControl = ({ instanceName }) => {
@@ -53,19 +54,19 @@ const ButtonControl = ({ instanceName }) => {
 
   return (
     <>
-      <button
+      <Cbutton
         onClick={handleRestart}
         className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 text-sm font-semibold text-white bg-amber-600 rounded-lg shadow-md transition-all duration-200 ease-in-out hover:bg-amber-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2"
       >
         Reiniciar
-      </button>
+      </Cbutton>
 
-      <button
+      <Cbutton
         onClick={handleDisconnect}
         className="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 text-sm font-semibold text-white bg-red-600 rounded-lg shadow-md transition-all duration-200 ease-in-out hover:bg-red-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
       >
         Desconectar
-      </button>
+      </Cbutton>
 
     </>
   );

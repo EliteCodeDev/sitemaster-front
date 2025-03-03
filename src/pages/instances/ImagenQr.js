@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import Image from 'next/image';
 import { Dialog, Transition } from '@headlessui/react';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 const QRCodeComponent = ({ instanceName }) => {
   const [qrBase64, setQrBase64] = useState('');
@@ -75,13 +76,13 @@ const QRCodeComponent = ({ instanceName }) => {
                   )}
                 </div>
                 <div className="mt-5 sm:mt-6">
-                  <button
+                  <Cbutton
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                     onClick={handleClose}
                   >
                     Listo
-                  </button>
+                  </Cbutton>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

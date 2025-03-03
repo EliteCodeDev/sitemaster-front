@@ -244,7 +244,7 @@ export default function SignUp() {
               <button
                 type="submit"
                 disabled={isSubmitting || !isPasswordValid()}
-                className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting || !isPasswordValid() ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)]'
+                className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting || !isPasswordValid() ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)]'
                   }`}
               >
                 {isSubmitting ? (

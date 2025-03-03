@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 
 import { toast } from 'sonner';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 export default function NoInstances() {
   const { data: session } = useSession(); // Accede a la sesión del usuario autenticado
@@ -44,19 +45,18 @@ export default function NoInstances() {
   return (
     <>
       <div className="mt-4 flex">
-        <button
+        <Cbutton
           type="button"
           onClick={handleButtonClick}
           disabled={isSubmitting}
-          className={`inline-flex items-center rounded-md px-6 py-3 text-md font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-            isSubmitting
-              ? "bg-blue-300 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
-          }`}
+          className={`inline-flex items-center rounded-md px-6 py-3 text-md font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${isSubmitting
+            ? "bg-blue-300 cursor-not-allowed"
+            : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
+            }`}
         >
           <PlusIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true" />
           {isSubmitting ? "Procesando..." : "Crear instancia de prueba"}
-        </button>
+        </Cbutton>
       </div>
     </>
   );

@@ -11,11 +11,12 @@ export default function Cbutton({
   onClick,
   startContent,
   endContent,
+  key,
 }) {
   const styles = {
     primary: {
       className:
-        "bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)] text-white w-full",
+        "bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)] text-white w-full",
     },
     secondary: {
       className:
@@ -29,6 +30,7 @@ export default function Cbutton({
 
   return (
     <Button
+      key={key}
       radius={radius ?? "lg"}
       className={classType ? styles[classType].className : className}
       type={type}

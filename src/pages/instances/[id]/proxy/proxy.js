@@ -210,7 +210,7 @@ const ProxySettings = ({ name }) => {
       <button
         onClick={saveSettings}
         disabled={isLoading}
-        className={`mt-4 px-4 py-2 rounded-md text-white transition-all duration-200 ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-[var(--app-primary)] hover:bg-[var(--app-primary)]"
+        className={`mt-4 px-4 py-2 rounded-md text-white transition-all duration-200 ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)]"
           }`}
       >
         {isLoading ? "Guardando..." : "Guardar"}
