@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@heroui/button";
+
 
 export default function Cbutton({
   children, // Se agrega children
@@ -17,7 +17,8 @@ export default function Cbutton({
         "bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)] text-white w-full",
     },
     secondary: {
-      className: "bg-secondary-500 text-white",
+      className:
+        "bg-[var(--app-secondary)] hover:bg-[var(--app-secondary)] focus:ring-[var(--app-secondary)] text-white w-full",
     },
     buttonPrimary: {
       className: "bg-primary-500 text-white",

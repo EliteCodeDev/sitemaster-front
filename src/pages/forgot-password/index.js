@@ -7,7 +7,7 @@ import { Eye } from 'lucide-react';
 import Layout from '../../components/layout/auth';
 
 import { getSession } from 'next-auth/react';
-import { Cbutton } from '../../components/interfaz/Cbutton';
+import Cbutton from '../../components/interfaz/Cbutton';
 
 const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -90,7 +90,7 @@ export default function ForgotPassword() {
           <div>
             {/* Deshabilitar el botón de envío mientras se está enviando el formulario */}
             <Cbutton
-              className="primary"
+              classType="secondary"
               type="submit"
               isLoading={isSubmitting}
               isSubmitting={isSubmitting}
