@@ -4,11 +4,11 @@ import { Button, ButtonGroup } from "@heroui/button";
 const styles = {
   primary: {
     className:
-      "bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)] text-[var(--button-text-color)] w-full",
+      "bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)] button-global text-[var(--button-text-color)] ",
   },
   secondary: {
     className:
-      "bg-[var(--app-secondary)] hover:bg-[var(--app-secondary)] focus:ring-[var(--app-secondary)] text-[var(--button-text-color)] w-full",
+      "bg-[var(--app-secondary)] hover:bg-[var(--app-secondary)] focus:ring-[var(--app-secondary)] button-global text-[var(--button-text-color)]",
   },
   auth: {
     className:

@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./custom.css";
-
 /*
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -88,11 +86,13 @@ body {
 
     --radius: 0.5rem;
 
-    --app-primary: theme("colors.red.500");
+    --app-primary: theme("colors.purple.500");
 
-    --app-primary-hovered: theme("colors.red.700");
+    --app-secondary: theme("colors.red.500");
 
-    --button-text-color: theme("colors.orange.500");
+    --app-primary-hovered: theme("colors.purple.700");
+
+    --button-text-color: theme("colors.white");
 
     /* .global-primary {
       background-color: var(--app-primary);
@@ -169,3 +169,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
+@import "./custom.css";

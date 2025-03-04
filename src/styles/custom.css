@@ -1,3 +1,6 @@
 .card-border {
   @apply rounded-xl border-0 dark:bg-gray-800 dark:text-gray-300  dark:focus:ring-amber-500 focus:ring-2 focus:ring-inset focus:ring-amber-500 sm:text-sm sm:leading-6 shadow-md;
 }
+.button-global {
+  @apply shadow-md;
+}
