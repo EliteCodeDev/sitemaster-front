@@ -40,7 +40,9 @@ export default function Cbutton({
     <Button
       key={key}
       radius={radius ?? "lg"}
-      className={classType ? styles[classType].className : className}
+      className={`${classType ? styles[classType].className : ""} ${
+        className || ""
+      }`}
       type={type}
       isLoading={isLoading}
       disabled={isSubmitting} // Deshabilitar el botón si se está enviando el formulario

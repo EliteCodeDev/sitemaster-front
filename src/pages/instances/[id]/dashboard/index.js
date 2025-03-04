@@ -12,7 +12,7 @@ const InstancePage = () => {
     <Layout>
       <LayoutGeneral>
 
-        <div className=" bg-white  p-6 mb-6 card-border">
+        <div className=" bg-white mb-6 card-border">
           <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
         </div>
 

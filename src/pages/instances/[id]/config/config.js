@@ -99,7 +99,7 @@ const InstancePage = ({ name }) => {
 
     return (
         <>
-            <div className="card-border bg-white p-6">
+            <div className="card-border bg-white">
                 <div className="space-y-4">
 
                     <p className='mb-4 text-lg font-semibold'>Ajustes de WhatsApp</p>

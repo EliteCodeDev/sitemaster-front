@@ -56,7 +56,7 @@ const LayoutInstance = ({ instanceId }) => {
         {/* Seccion de conexion*/}
 
         {instance.connectionStatus === 'open' && (
-          <section className=' bg-white p-6 card-border'>
+          <section className=' bg-white card-border'>
             <h2 className='mb-4 text-xl font-semibold'>Tu número de WhatsApp conectado</h2>
             <div className="group block flex-shrink-0">
               <div className="flex items-center">

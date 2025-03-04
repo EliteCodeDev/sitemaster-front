@@ -120,6 +120,7 @@ export default function SignIn() {
               type="submit"
               disabled={isSubmitting} // Bloquear el botón de enviar mientras se envía el formulario
               classType="primary"
+              className={"w-full"}
               isLoading={isSubmitting}
             // startContent={<Spin />}
             >

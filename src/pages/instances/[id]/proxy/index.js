@@ -25,7 +25,7 @@ const InstancePage = () => {
     <Layout>
       <LayoutGeneral>
 
-        <div className="card-border bg-white p-6 mb-6">
+        <div className="card-border bg-white mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Proxy</h2>
         </div>
 
