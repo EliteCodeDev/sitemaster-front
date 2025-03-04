@@ -134,7 +134,7 @@ export default function Navbar() {
                   )}
 
                   {/* Botón para alternar Modo Oscuro */}
-                  {/* <ToggleMode /> */}
+                   <ToggleMode />
                 </div>
 
                 {/* Botón menú móvil */}
