@@ -128,7 +128,7 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
             : instance.connectionStatus === "connecting"
               ? "bg-orange-500"
               : instance.connectionStatus === "close"
-                ? "bg-red-600"
+                ? "bg-green-600"
                 : "bg-gray-600"
             }`}
         >
