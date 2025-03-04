@@ -118,7 +118,7 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={isSubmitting} // Bloquear el botón de enviar mientras se envía el formulario
-              className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)]'
+              className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)]'
                 }`}
             >
               {isSubmitting ? (

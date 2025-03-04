@@ -10,6 +10,7 @@ import {
   ClipboardIcon,
 } from '@heroicons/react/24/outline';
 import { toast } from 'sonner';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 const fetchInstanceData = async (url) => {
   try {
@@ -77,12 +78,13 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
           {visibleKey ? instance.token : '********-****-****-****-************'}
         </p>
         <div className="flex space-x-4">
-          <button onClick={toggleKeyVisibility} className="text-gray-500 hover:text-gray-700">
+          <Cbutton onClick={toggleKeyVisibility}
+            classType={"primary"}>
             {visibleKey ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
-          </button>
-          <button onClick={copyToClipboard} className="text-gray-500 hover:text-gray-700">
+          </Cbutton>
+          <Cbutton onClick={copyToClipboard} className="text-gray-500 hover:text-gray-700">
             <ClipboardIcon className="h-5 w-5" />
-          </button>
+          </Cbutton>
         </div>
       </div>
 
@@ -126,7 +128,7 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
             : instance.connectionStatus === "connecting"
               ? "bg-orange-500"
               : instance.connectionStatus === "close"
-                ? "bg-red-600"
+                ? "bg-green-600"
                 : "bg-gray-600"
             }`}
         >
@@ -142,10 +144,10 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
         {/* Botón de ajustes con Link funcional */}
         {isActive ? (
           <Link href={`/instances/${instanceId}/dashboard`} passHref>
-            <button className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
-              <Cog6ToothIcon className="h-6 w-6" />
+            <Cbutton className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2"
+              startContent={<Cog6ToothIcon className="h-6 w-6" />}>
               <span>Ajustes</span>
-            </button>
+            </Cbutton>
           </Link>
         ) : (
           <span className="text-base font-semibold bg-red-500 text-white px-6 py-2 rounded-lg">Tu servicio expiro.</span>

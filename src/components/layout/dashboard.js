@@ -21,7 +21,7 @@ export default function Layout({ children, title }) {
                             <h1 className="text-xl sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{title}</h1>
                             <Link
                                 href="/upgrade/"
-                                className="inline-flex items-center rounded-md bg-[var(--app-primary)] px-3 py-2 text-white shadow-sm hover:bg-[var(--app-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
+                                className="inline-flex items-center rounded-md bg-[var(--app-primary)] px-3 py-2 text-white shadow-sm hover:bg-[var(--app-primary-hovered)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
                             >
                                 <PlusIcon className="h-5 w-auto" aria-hidden="true" />
                                 <span className="ml-2 hidden sm:block text-sm font-medium">Crea una instancia</span>

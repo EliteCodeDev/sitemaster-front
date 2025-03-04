@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import { strapiUrl } from '@/routes/routes';
 
 // Función fetcher para obtener los datos
 const fetcher = async (url, token) => {

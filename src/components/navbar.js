@@ -7,21 +7,11 @@ import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import LogoGravatar from '../components/LogoGravatar'
 import ToggleMode from '../components/ui/toggle-mode'
+import Cbutton from '../components/interfaz/Cbutton'
+import { MainIcon } from './interfaz/Icons'
+import { navigation, userNavigation } from '@/routes/routes'
 
 
-const navigation = [
-  { name: 'Prueba gratis', href: '/trial', trial: true },
-  { name: 'Tus instancias', href: '/' },
-  { name: 'Servicios', href: '/services' },
-  { name: 'Documentación', href: 'https://docs.wazend.net/', external: true },
-]
-
-const userNavigation = [
-  { name: 'Tu perfil', href: '/profile' },
-  { name: 'Facturación', href: '/billing' },
-  { name: 'Reportes', href: 'https://status.wazend.net/', external: true },
-  { name: 'Cerrar sesión', href: '/', signOut: true }
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -59,32 +49,7 @@ export default function Navbar() {
               <div className="flex h-16 justify-between">
                 {/* Logo */}
                 <div className="flex">
-                  <div className="flex flex-shrink-0 items-center">
-                    <Link href="/">
-                      <Image
-                        className="block h-8 w-auto lg:hidden dark:hidden"
-                        src="/images/icon-dark.svg"
-                        alt="Wazend Logo"
-                        width={236}
-                        height={60}
-                      />
-                      <Image
-                        className="hidden h-8 w-auto lg:block dark:hidden"
-                        src="/images/icon-dark.svg"
-                        alt="Wazend Logo"
-                        width={236}
-                        height={60}
-                      />
-                      {/* Logo para modo oscuro */}
-                      <Image
-                        className="hidden dark:block h-8 w-auto"
-                        src="/images/icon-light.svg"
-                        alt="Wazend Logo"
-                        width={236}
-                        height={60}
-                      />
-                    </Link>
-                  </div>
+                  <MainIcon> </MainIcon>
 
                   {/* Navegación */}
                   <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
@@ -101,9 +66,13 @@ export default function Navbar() {
                         aria-current={currentPath === item.href ? "page" : undefined}
                         target={item.external ? "_blank" : undefined}
                       >
-                        <span className={item.trial ? "bg-[var(--app-primary)] text-white px-2 py-1 rounded-lg" : ""}>
-                          {item.name}
-                        </span>
+                        {item.trial ? (
+                          <Cbutton className="bg-[var(--app-primary)] text-white px-2 py-1 h-7 rounded-lg">
+                            {item.name}
+                          </Cbutton>
+                        ) : (
+                          <span>{item.name}</span>
+                        )}
                       </Link>
                     ))}
                   </div>

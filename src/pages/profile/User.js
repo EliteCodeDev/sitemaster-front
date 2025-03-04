@@ -3,8 +3,9 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'sonner';
 import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 import LogoGravatar from '../../components/LogoGravatar';
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import Cbutton from '@/components/interfaz/Cbutton';
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function User() {
   const { data: session, status } = useSession();
@@ -184,13 +185,13 @@ export default function User() {
 
               {/* Botón de enviar */}
               <div className="flex justify-end">
-                <button
+                <Cbutton
                   type="submit"
-                  className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
+                  className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
                   disabled={isSubmittingProfile}
                 >
                   {isSubmittingProfile ? 'Guardando...' : 'Guardar cambios'}
-                </button>
+                </Cbutton>
               </div>
             </div>
           </form>
@@ -266,13 +267,13 @@ export default function User() {
 
               {/* Botón de enviar */}
               <div className="flex justify-end">
-                <button
+                <Cbutton
                   type="submit"
-                  className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
+                  className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
                   disabled={isSubmittingPassword}
                 >
                   {isSubmittingPassword ? 'Guardando...' : 'Actualizar contraseña'}
-                </button>
+                </Cbutton>
               </div>
             </div>
           </form>

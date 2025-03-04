@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { ArrowRightCircleIcon, EyeIcon, EyeSlashIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 
 import { toast } from 'sonner';
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const UserSubscription = () => {
   const { data: session, status } = useSession();

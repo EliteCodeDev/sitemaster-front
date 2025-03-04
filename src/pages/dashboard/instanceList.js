@@ -5,8 +5,9 @@ import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 import Link from 'next/link';
 import { PlusIcon } from '@heroicons/react/24/solid';
 
+import { strapiUrl } from '@/routes/routes';
 
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const fetcher = async (url, jwt) => {
   try {
@@ -35,6 +36,8 @@ const FetchStrapi = () => {
     jwt ? `${strapiUrl}/api/users/me?populate=instances` : null,
     (url) => fetcher(url, jwt)
   );
+
+
 
   // console.log(data);
 
@@ -75,7 +78,7 @@ const FetchStrapi = () => {
         </p>
         <Link
           href="/upgrade/"
-          className="mt-6 inline-flex items-center rounded-lg bg-[var(--app-primary)] px-5 py-3 text-white text-base font-medium shadow-md hover:bg-[var(--app-primary)] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
+          className="mt-6 inline-flex items-center rounded-lg bg-[var(--app-primary)] px-5 py-3 text-white text-base font-medium shadow-md hover:bg-[var(--app-primary-hovered)] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
         >
           <PlusIcon className="h-6 w-6" aria-hidden="true" />
           <span className="ml-3">Crea una instancia</span>

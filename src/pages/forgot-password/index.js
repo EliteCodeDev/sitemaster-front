@@ -7,8 +7,8 @@ import Layout from '../../components/layout/auth';
 
 import { getSession } from 'next-auth/react';
 import Cbutton from '../../components/interfaz/Cbutton';
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -87,7 +87,6 @@ export default function ForgotPassword() {
           </div>
 
           <div>
-            {/* Deshabilitar el botón de envío mientras se está enviando el formulario */}
             <Cbutton
               classType="secondary"
               type="submit"
@@ -96,6 +95,10 @@ export default function ForgotPassword() {
             >
               {isSubmitting ? "Enviando..." : "Enviar correo de reinicio"}
             </Cbutton>
+
+
+
+
 
           </div>
         </form>
@@ -111,7 +114,6 @@ export default function ForgotPassword() {
         </p>
       </div>
     </Layout>
-
   );
 };
 

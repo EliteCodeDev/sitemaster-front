@@ -88,7 +88,9 @@ body {
 
     --app-primary: theme("colors.red.500");
 
-    --app-secondary: theme("colors.amber.600");
+    --app-primary-hovered: theme("colors.red.700");
+
+    --button-text-color: theme("colors.orange.500");
 
     /* .global-primary {
       background-color: var(--app-primary);

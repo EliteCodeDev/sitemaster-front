@@ -11,8 +11,8 @@ import {
 
 import { getSession } from 'next-auth/react';
 
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 
 export default function ResetPassword() {
@@ -132,7 +132,7 @@ export default function ResetPassword() {
             disabled={loading} // Desactivar el botón mientras se carga la solicitud
             className={`text-white flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${loading
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus:ring-[var(--app-primary)]'
+              : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)]'
               }`}
           >
             {loading ? 'Cargando...' : 'Restablecer contraseña'}

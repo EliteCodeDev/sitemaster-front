@@ -9,8 +9,9 @@ import Link from 'next/link';
 
 import { ArrowTopRightOnSquareIcon, ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 import Cbutton from './interfaz/Cbutton';
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+import { useStrapiData } from '@/services/strapiServiceJWT';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const UserSubscription = () => {
   const { data: session, status } = useSession();
@@ -18,52 +19,43 @@ const UserSubscription = () => {
   const [userId, setUserId] = useState(null);
   const [isCreating, setIsCreating] = useState(false);
 
-  const fetcher = async (url) => {
-    try {
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      });
 
-      if (!response.ok) {
-        return null;
-      }
 
-      return response.json();
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return null;
-    }
-  };
+  // const fetcher = async (url) => {
+  //   try {
+  //     const response = await fetch(url, {
+  //       headers: {
+  //         Authorization: `Bearer ${jwt}`,
+  //       },
+  //     });
+
+  //     if (!response.ok) {
+  //       return null;
+  //     }
+
+  //     return response.json();
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //     return null;
+  //   }
+  // };
 
   useEffect(() => {
     const getTokenAndUserId = async () => {
-      const session = await getSession();
       if (session) {
         setJwt(session.jwt);
-        try {
-          const response = await fetch(`${strapiUrl}/api/users/me`, {
-            headers: {
-              Authorization: `Bearer ${session.jwt}`,
-            },
-          });
-          if (response.ok) {
-            const userData = await response.json();
-            setUserId(userData.id);
-          } else {
-            console.error('Error fetching user data');
-          }
-        } catch (error) {
-          console.error('Error fetching user data:', error);
-        }
-      }
-    };
+        const { data: response } = useStrapiData('users/me', session.jwt);
 
-    getTokenAndUserId();
+        if (response.id)
+          setUserId(response.id);
+
+        getTokenAndUserId();
+      }
+    }
   }, []);
 
-  const { data, error, isLoading } = useSWR(jwt ? `${strapiUrl}/api/users/me?populate=subscriptions` : null, fetcher);
+  // const { data, error, isLoading } = useSWR(jwt ? `${strapiUrl}/api/users/me?populate=subscriptions` : null, fetcher);
+  const { data, error, isLoading } = useStrapiData(jwt ? 'users/me?populate=subscriptions' : null, jwt);
 
   const createOrder = async () => {
     setIsCreating(true);

@@ -11,14 +11,14 @@ export default function Example() {
             description: "¿Fuiste parte del Master de Inteligencia Artificial? Activa tu prueba gratis en el botón de abajo.",
             buttonText: "Activar prueba gratis",
             buttonUrl: checkoutUrl,
-            buttonColor: "bg-[var(--app-primary)] hover:bg-[var(--app-primary)] focus-visible:outline-[var(--app-primary)]"
+            buttonColor: "bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus-visible:outline-[var(--app-primary)]"
         },
         {
             title: "🛟 ¿Necesitas tutoriales?",
             description: "Hemos creado un canal de YouTube en donde creamos contenido de automatización gratuito para que le saques el juego a Wazend.",
             buttonText: "Ir al canal de YouTube",
             buttonUrl: "https://www.youtube.com/@wazend-es",
-            buttonColor: "bg-red-600 hover:bg-red-500 focus-visible:outline-red-600"
+            buttonColor: "bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus-visible:outline-[var(--app-primary)]"
         }
     ];
 

@@ -120,7 +120,7 @@ const WebhookControl = ({ instanceName }) => {
             <div className='px-4 pb-4'>
                 <button
                     onClick={handleSave}
-                    className={`rounded-md px-4 py-2 font-medium text-white ${webhookUrl ? 'bg-[var(--app-primary)] hover:bg-[var(--app-primary)]' : 'bg-gray-400 cursor-not-allowed'
+                    className={`rounded-md px-4 py-2 font-medium text-white ${webhookUrl ? 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)]' : 'bg-gray-400 cursor-not-allowed'
                         }`}
                     disabled={!webhookUrl} // Deshabilita el botón si Webhook URL está vacío
                 >
