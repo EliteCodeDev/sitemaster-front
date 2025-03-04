@@ -6,13 +6,13 @@ import LogoGravatar from '../../components/LogoGravatar';
 import Cbutton from '@/components/interfaz/Cbutton';
 import { strapiUrl } from '@/routes/routes';
 // const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import Cinput from '../../components/interfaz/Cinput';
 
 export default function User() {
   const { data: session, status } = useSession();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
@@ -156,17 +156,29 @@ export default function User() {
                 <label htmlFor="current-password" className="block text-sm font-medium text-black">
                   Nombre
                 </label>
+                {/*
                 <input
                   className="mt-2 block w-full rounded-md border-0 py-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Ingrese su nombre"
                 />
+                */}
+                
+                <Cinput
+                  classType="primary"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Ingrese su nombre"
+                />
+
+
               </div>
 
               {/* Confirmar contraseña */}
               <div>
                 <label className="block text-sm font-medium text-black">Teléfono</label>
+                {/*
                 <input
                   type="tel"
                   pattern="[0-9]*"
@@ -181,6 +193,21 @@ export default function User() {
                   }}
                   placeholder="Ingrese su teléfono"
                 />
+                */}
+                <Cinput
+                  classType="primary"
+                  type="tel"
+                  pattern="[0-9]*"
+                  inputMode="numeric"
+                  value={phone}
+                  onChange={(e) => {
+                    const regex = /^[0-9\b]+$/;
+                    if (e.target.value === '' || regex.test(e.target.value)) {
+                      setPhone(e.target.value);
+                    }
+                  }}
+                  placeholder="Ingrese su teléfono"
+                  />
               </div>
 
               {/* Botón de enviar */}
@@ -216,6 +243,7 @@ export default function User() {
                 <label htmlFor="current-password" className="block text-sm font-medium text-black">
                   Contraseña actual
                 </label>
+                {/*
                 <input
                   id="current-password"
                   name="currentPassword"
@@ -227,6 +255,18 @@ export default function User() {
                   className="mt-2 block w-full rounded-md border-0 py-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
                   placeholder="Ingresa tu contraseña actual"
                 />
+                */}
+                <Cinput
+                  classType="primary"
+                  id="current-password"
+                  name="currentPassword"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  placeholder="Ingresa tu contraseña actual"
+                />
               </div>
 
               {/* Nueva contraseña */}
@@ -234,6 +274,7 @@ export default function User() {
                 <label htmlFor="new-password" className="block text-sm font-medium text-black">
                   Nueva contraseña
                 </label>
+                {/*
                 <input
                   id="new-password"
                   name="newPassword"
@@ -245,6 +286,18 @@ export default function User() {
                   className="mt-2 block w-full rounded-md border-0 py-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
                   placeholder="Ingresa tu nueva contraseña"
                 />
+                */}
+                <Cinput
+                  classType="primary"
+                  id="new-password"
+                  name="newPassword"
+                  type="password"
+                  autoComplete="new-password"
+                  required
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Ingresa tu nueva contraseña"
+                />
               </div>
 
               {/* Confirmar contraseña */}
@@ -252,6 +305,7 @@ export default function User() {
                 <label htmlFor="confirm-password" className="block text-sm font-medium text-black">
                   Confirmar contraseña
                 </label>
+                {/*
                 <input
                   id="confirm-password"
                   name="confirmPassword"
@@ -261,6 +315,18 @@ export default function User() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   className="mt-2 block w-full rounded-md border-0 py-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[var(--app-primary)] sm:text-sm sm:leading-6"
+                  placeholder="Confirma tu nueva contraseña"
+                />
+                */}
+                <Cinput
+                  classType="primary"
+                  id="confirm-password"
+                  name="confirmPassword"
+                  type="password"
+                  autoComplete="new-password"
+                  required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Confirma tu nueva contraseña"
                 />
               </div>

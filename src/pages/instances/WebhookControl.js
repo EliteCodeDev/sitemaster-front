@@ -2,6 +2,8 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import { useEffect, useState } from 'react';
 
+import Cinput from '@/components/interfaz/Cinput';
+
 import { toast } from 'sonner';
 
 const fetcher = (url) =>
@@ -82,12 +84,21 @@ const WebhookControl = ({ instanceName }) => {
             </div>
             <div className='mt-2 mb-2 p-4'>
                 <h3 className='text-sm font-semibold text-gray-800 mb-2'>Webhook URL</h3>
+                {/*}
                 <input
                     type='text'
                     value={webhookUrl}
                     onChange={(e) => setWebhookUrl(e.target.value)}
                     className='w-full rounded-md border border-gray-300 p-2 focus:border-[var(--app-primary)] focus:ring-[var(--app-primary)] focus:outline-none focus:ring-1'
                 />
+                */}
+                <Cinput
+                    classType="primary"
+                    value={webhookUrl}
+                    onChange={(e) => setWebhookUrl(e.target.value)}
+                    placeholder='https://miwebhook.com'
+                />
+
             </div>
 
             <div className='p-4'>
