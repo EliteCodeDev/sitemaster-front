@@ -56,7 +56,7 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
   };
 
   return (
-    <div className="flex flex-col bg-white rounded-xl p-6 shadow-lg gap-4">
+    <div className="flex flex-col bg-white p-6 gap-4 card-border">
       {/* Encabezado */}
       <div className="flex justify-between items-center mb-2">
         <p className="text-lg font-bold">{instanceName}</p>

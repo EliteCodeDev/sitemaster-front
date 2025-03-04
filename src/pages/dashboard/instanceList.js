@@ -54,7 +54,7 @@ const FetchStrapi = () => {
 
   if (!data?.instances?.length) {
     return <>
-      <div className="bg-white rounded-xl px-6 py-10 text-center shadow-lg w-full mx-auto border border-gray-200 min-h-[400px] flex flex-col justify-center items-center">
+      <div className="bg-white px-6 py-10 text-center  w-full mx-auto  min-h-[400px] flex flex-col justify-center items-center card-border">
         <svg
           className="mx-auto h-12 w-12 text-gray-400"
           fill="none"
