@@ -7,7 +7,7 @@ import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import LogoGravatar from '../components/LogoGravatar'
 import ToggleMode from '../components/ui/toggle-mode'
-import Cbutton from '../components/interfaz/cbutton'
+import Cbutton from '../components/interfaz/Cbutton'
 import { MainIcon } from './interfaz/Icons'
 
 
