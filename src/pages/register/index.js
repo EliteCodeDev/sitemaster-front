@@ -9,9 +9,9 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import Layout from '../../components/layout/auth';
 import Spin from '../../components/loaders/spin';
 import SignSocial from '../../components/SignSocial';
+import { strapiUrl } from '@/routes/routes';
 
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function SignUp() {
   const router = useRouter();

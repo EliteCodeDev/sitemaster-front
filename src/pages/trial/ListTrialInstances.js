@@ -6,7 +6,8 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 import CreateButton from './CreateButton';
 import DeleteButton from './DeleteButton';
 
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const fetcher = async (url, jwt) => {
   try {

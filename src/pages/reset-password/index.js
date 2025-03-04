@@ -11,8 +11,8 @@ import {
 
 import { getSession } from 'next-auth/react';
 
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 
 export default function ResetPassword() {

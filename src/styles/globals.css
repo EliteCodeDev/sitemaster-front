@@ -90,6 +90,8 @@ body {
 
     --app-primary-hovered: theme("colors.red.700");
 
+    --button-text-color: theme("colors.orange.500");
+
     /* .global-primary {
       background-color: var(--app-primary);
       color: white;

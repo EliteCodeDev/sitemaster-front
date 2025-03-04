@@ -4,8 +4,8 @@ import { toast } from 'sonner';
 import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 import LogoGravatar from '../../components/LogoGravatar';
 import Cbutton from '@/components/interfaz/Cbutton';
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function User() {
   const { data: session, status } = useSession();

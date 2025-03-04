@@ -5,8 +5,9 @@ import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 import Link from 'next/link';
 import { PlusIcon } from '@heroicons/react/24/solid';
 
+import { strapiUrl } from '@/routes/routes';
 
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const fetcher = async (url, jwt) => {
   try {
@@ -35,6 +36,8 @@ const FetchStrapi = () => {
     jwt ? `${strapiUrl}/api/users/me?populate=instances` : null,
     (url) => fetcher(url, jwt)
   );
+
+
 
   // console.log(data);
 

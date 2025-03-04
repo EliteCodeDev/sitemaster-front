@@ -7,8 +7,8 @@ import Layout from '../../components/layout/auth';
 
 import { getSession } from 'next-auth/react';
 import Cbutton from '../../components/interfaz/Cbutton';
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+import { strapiUrl } from '@/routes/routes';
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
