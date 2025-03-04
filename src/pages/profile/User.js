@@ -126,7 +126,7 @@ export default function User() {
         <p className="text-2xl font-semibold">Mi perfil</p>
       </div>
 
-      <div className="w-full max-w-3xl mx-auto bg-white rounded-2xl shadow-lg">
+      <div className="w-full max-w-3xl mx-auto bg-white card-border">
         <div className="flex flex-col p-10">
           <div className="flex items-center space-x-4">
             <LogoGravatar
@@ -142,7 +142,7 @@ export default function User() {
       </div>
 
 
-      <div className="mt-6 w-full max-w-3xl mx-auto bg-white rounded-2xl shadow-lg">
+      <div className="mt-6 w-full max-w-3xl mx-auto bg-white card-border">
         <div className="flex flex-col p-10">
           <p className="text-lg font-semibold text-black mb-2">Información del perfil</p>
           <p className="text-gray-500 text-sm mb-8">
@@ -214,10 +214,12 @@ export default function User() {
               <div className="flex justify-end">
                 <Cbutton
                   type="submit"
-                  className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
+                  // className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
+                  classType={"primary"}
                   disabled={isSubmittingProfile}
+                  isLoading={isSubmittingProfile}
                 >
-                  {isSubmittingProfile ? 'Guardando...' : 'Guardar cambios'}
+                  {isSubmittingProfile ? <></> : 'Guardar cambios'}
                 </Cbutton>
               </div>
             </div>
@@ -229,7 +231,7 @@ export default function User() {
 
 
 
-      <div className="mt-6 w-full max-w-3xl mx-auto bg-white rounded-2xl shadow-lg">
+      <div className="mt-6 w-full max-w-3xl mx-auto bg-white card-border">
         <div className="flex flex-col p-10">
           <p className="text-lg font-semibold text-black mb-2">Actualizar contraseña</p>
           <p className="text-gray-500 text-sm mb-8">
@@ -335,10 +337,12 @@ export default function User() {
               <div className="flex justify-end">
                 <Cbutton
                   type="submit"
-                  className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"
+                  // className="px-4 py-2 bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--app-primary)] focus:ring-offset-2 disabled:bg-gray-400"}
+                  classType={"primary"}
                   disabled={isSubmittingPassword}
+                  isLoading={isSubmittingPassword}
                 >
-                  {isSubmittingPassword ? 'Guardando...' : 'Actualizar contraseña'}
+                  {isSubmittingPassword ? <></> : 'Actualizar contraseña'}
                 </Cbutton>
               </div>
             </div>

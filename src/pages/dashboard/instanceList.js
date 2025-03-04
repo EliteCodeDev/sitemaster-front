@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { PlusIcon } from '@heroicons/react/24/solid';
 
 import { strapiUrl } from '@/routes/routes';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 // const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -54,7 +55,7 @@ const FetchStrapi = () => {
 
   if (!data?.instances?.length) {
     return <>
-      <div className="bg-white rounded-xl px-6 py-10 text-center shadow-lg w-full mx-auto border border-gray-200 min-h-[400px] flex flex-col justify-center items-center">
+      <div className="bg-white px-6 py-10 text-center  w-full mx-auto  min-h-[400px] flex flex-col justify-center items-center card-border">
         <svg
           className="mx-auto h-12 w-12 text-gray-400"
           fill="none"
@@ -78,10 +79,15 @@ const FetchStrapi = () => {
         </p>
         <Link
           href="/upgrade/"
-          className="mt-6 inline-flex items-center rounded-lg bg-[var(--app-primary)] px-5 py-3 text-white text-base font-medium shadow-md hover:bg-[var(--app-primary-hovered)] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
+          className="mt-5"
         >
-          <PlusIcon className="h-6 w-6" aria-hidden="true" />
-          <span className="ml-3">Crea una instancia</span>
+          <Cbutton
+            classType={"primary"}
+            startContent={
+              <PlusIcon className='w-5' />
+            }>
+            <span>Crea una instancia</span>
+          </Cbutton>
         </Link>
       </div>
     </>;

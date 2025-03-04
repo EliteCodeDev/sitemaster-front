@@ -88,7 +88,7 @@ export default function ForgotPassword() {
 
           <div>
             <Cbutton
-              classType="secondary"
+              classType={"primary"}
               type="submit"
               isLoading={isSubmitting}
               isSubmitting={isSubmitting}
@@ -107,7 +107,7 @@ export default function ForgotPassword() {
           ¿Ya tienes una cuenta?{' '}
           <Link
             href="/login"
-            className="font-semibold leading-6 text-[var(--app-primary)] hover:text-[var(--app-primary)] dark:hover:text-[var(--app-primary)]"
+            className="font-semibold leading-6 text-[var(--app-primary)] hover:text-[var(--app-primary)] dark:hover:text-[var(--app-primary)] button-text"
           >
             Iniciar sesión
           </Link>

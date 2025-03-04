@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 export default function Example() {
     const { data: session } = useSession();
@@ -25,17 +26,17 @@ export default function Example() {
     return (
         <div className="grid gap-4 lg:grid-cols-2">
             {cards.map((card, index) => (
-                <div key={index} className="flex flex-col bg-white rounded-xl p-6 shadow-lg gap-4">
+                <div key={index} className="flex flex-col bg-white gap-4 card-border justify-between">
                     <p className="text-xl font-semibold tracking-tight text-gray-950">{card.title}</p>
                     <p className="text-base text-gray-600">{card.description}</p>
-                    <a
+                    <Link
                         href={card.buttonUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`mt-2 w-full text-center rounded-lg px-4 py-3 text-base font-semibold text-white shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 ${card.buttonColor}`}
                     >
-                        {card.buttonText}
-                    </a>
+                        <span className='text-[var(--button-text-color)]'>{card.buttonText}</span>
+                    </Link>
                 </div>
             ))}
         </div>

@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     <div className="h-screen bg-white dark:bg-zinc-900">
       <div className="flex min-h-full flex-1">
 
-      <div className="relative hidden w-1/2 lg:block">
+        <div className="relative hidden w-1/2 lg:block">
           <Image
             className="absolute inset-0 h-full w-full object-cover"
             src="/images/bg-register.webp"

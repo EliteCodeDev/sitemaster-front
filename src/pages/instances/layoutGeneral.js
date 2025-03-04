@@ -31,7 +31,7 @@ export default function Profile({ children }) {
                 onClick={() => router.push(item.path)}
                 className={`w-full px-2 py-2.5 text-left text-sm font-medium rounded-md flex items-center gap-x-2 transition-colors duration-200 ease-in-out border-l-0 ${currentRoute === item.path
                   ? 'bg-gray-300 text-[var(--app-primary)] border-[var(--app-primary)]'
-                  : 'text-gray-700 hover:bg-gray-200 hover:underline border-transparent'
+                  : 'text-gray-700 hover:bg-gray-200 border-transparent'
                   }`}
               >
                 <item.icon className={`h-5 w-5 ${currentRoute === item.path ? 'text-[var(--app-primary)]' : 'text-gray-700'}`} strokeWidth="2" />

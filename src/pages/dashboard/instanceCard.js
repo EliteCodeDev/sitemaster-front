@@ -56,7 +56,7 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
   };
 
   return (
-    <div className="flex flex-col bg-white rounded-xl p-6 shadow-lg gap-4">
+    <div className="flex flex-col bg-white gap-4 card-border">
       {/* Encabezado */}
       <div className="flex justify-between items-center mb-2">
         <p className="text-lg font-bold">{instanceName}</p>
@@ -73,18 +73,21 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
       </div>
 
       {/* API Key con íconos de ojo y copiar */}
-      <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between">
+      <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between card-border">
         <p className="text-black text-sm font-mono">
           {visibleKey ? instance.token : '********-****-****-****-************'}
         </p>
         <div className="flex space-x-4">
-          <Cbutton onClick={toggleKeyVisibility}
-            classType={"primary"}>
+          <button onClick={toggleKeyVisibility}
+            variant={"transparent"}
+            className="text-gray-500 hover:text-gray-700">
             {visibleKey ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
-          </Cbutton>
-          <Cbutton onClick={copyToClipboard} className="text-gray-500 hover:text-gray-700">
+          </button>
+          <button onClick={copyToClipboard}
+            variant={"transparent"}
+            className="text-gray-500 hover:text-gray-700">
             <ClipboardIcon className="h-5 w-5" />
-          </Cbutton>
+          </button>
         </div>
       </div>
 
@@ -144,7 +147,9 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
         {/* Botón de ajustes con Link funcional */}
         {isActive ? (
           <Link href={`/instances/${instanceId}/dashboard`} passHref>
-            <Cbutton className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2"
+            <Cbutton
+              // className=""
+              classType={"settings"}
               startContent={<Cog6ToothIcon className="h-6 w-6" />}>
               <span>Ajustes</span>
             </Cbutton>

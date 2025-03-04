@@ -14,24 +14,23 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <Head>
         <title>Wazend</title>
       </Head>
-      {/* <ThemeProvider
+      <ThemeProvider
         attribute="class"
         defaultTheme="light"
         enableSystem
-        // defaultTheme="light"
-        // enableSystem={false}
-        disableTransitionOnChange> */}
-      <SessionProvider session={session}>
-        <ProgressBar
-          height="4px"
-          color="#059669"
-          options={{ showSpinner: false }}
-          shallowRouting
-        />
-        <Toaster closeButton richColors position="top-right" />
-        <Component {...pageProps} />
-      </SessionProvider>
-      {/* </ThemeProvider> */}
+        //  enableSystem={false}
+        disableTransitionOnChange>
+        <SessionProvider session={session}>
+          <ProgressBar
+            height="3px"
+            color="#800080" // Hex code for purple
+            options={{ showSpinner: false }}
+            shallowRouting
+          />
+          <Toaster closeButton richColors position="top-right" />
+          <Component {...pageProps} />
+        </SessionProvider>
+      </ThemeProvider>
     </>
   );
 }
