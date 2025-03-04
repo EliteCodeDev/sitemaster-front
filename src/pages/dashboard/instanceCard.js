@@ -78,16 +78,16 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
           {visibleKey ? instance.token : '********-****-****-****-************'}
         </p>
         <div className="flex space-x-4">
-          <Cbutton onClick={toggleKeyVisibility}
+          <button onClick={toggleKeyVisibility}
             variant={"transparent"}
             className="text-gray-500 hover:text-gray-700">
             {visibleKey ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
-          </Cbutton>
-          <Cbutton onClick={copyToClipboard}
+          </button>
+          <button onClick={copyToClipboard}
             variant={"transparent"}
             className="text-gray-500 hover:text-gray-700">
             <ClipboardIcon className="h-5 w-5" />
-          </Cbutton>
+          </button>
         </div>
       </div>
 
