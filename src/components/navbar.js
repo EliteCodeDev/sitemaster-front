@@ -79,7 +79,7 @@ export default function Navbar() {
                         target={item.external ? "_blank" : undefined}
                       >
                         {item.trial ? (
-                          <Cbutton className="bg-[var(--app-primary)] text-white px-2 py-1 rounded-lg">
+                          <Cbutton className="bg-[var(--app-primary)] text-white px-2 py-1 h-7 rounded-lg">
                             {item.name}
                           </Cbutton>
                         ) : (
