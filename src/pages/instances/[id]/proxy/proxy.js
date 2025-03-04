@@ -124,7 +124,7 @@ const ProxySettings = ({ name }) => {
   if (!data && data !== null) return <Preload />;
 
   return (
-    <div className="rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)] p-6">
+    <div className="card-border bg-white p-6">
       {/* Toggle Switch */}
       <div className="flex items-center justify-between mb-4">
         <div>

@@ -10,6 +10,7 @@ import ImagenQr from '../../ImagenQr';
 import ButtonControl from '../../ButtonControl';
 import WebhookControl from '../../WebhookControl';
 import Preload from '../../../../components/loaders/OrderSkeleton';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 
 // Función fetcher que usa axios y pasa instanceId como parámetro
@@ -55,7 +56,7 @@ const LayoutInstance = ({ instanceId }) => {
         {/* Seccion de conexion*/}
 
         {instance.connectionStatus === 'open' && (
-          <section className='rounded-lg bg-white p-6 shadow-[0_0_5px_rgba(0,0,0,0.1)]'>
+          <section className=' bg-white p-6 card-border'>
             <h2 className='mb-4 text-xl font-semibold'>Tu número de WhatsApp conectado</h2>
             <div className="group block flex-shrink-0">
               <div className="flex items-center">
@@ -122,7 +123,7 @@ const LayoutInstance = ({ instanceId }) => {
         )}
 
 
-        <section className='rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)]'>
+        <section className=' bg-white card-border'>
           <div className='flex flex-col md:flex-row'>
 
             {/* Primera columna */}
@@ -187,7 +188,8 @@ const LayoutInstance = ({ instanceId }) => {
                     <p className='text-lg font-medium text-[var(--app-primary)]'>
                       {isTokenVisible ? instance.token : '••••••••••'}
                     </p>
-                    <button
+                    <Cbutton
+                      classType={"primary"}
                       onClick={() => setIsTokenVisible(!isTokenVisible)}
                       className="focus:outline-none"
                     >
@@ -196,13 +198,13 @@ const LayoutInstance = ({ instanceId }) => {
                       ) : (
                         <EyeIcon className="h-5 w-5 text-gray-800" />
                       )}
-                    </button>
-                    <button
+                    </Cbutton>
+                    <Cbutton
                       onClick={handleCopy}
                       className="focus:outline-none"
                     >
                       <ClipboardIcon className="h-5 w-5 text-gray-800" />
-                    </button>
+                    </Cbutton>
                   </div>
                 </div>
 
@@ -231,7 +233,7 @@ const LayoutInstance = ({ instanceId }) => {
           </div>
         </section>
 
-        <section className='rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)]'>
+        <section className=' bg-white card-border'>
           <div className='flex flex-col md:flex-row'>
 
             {/* Contactos */}

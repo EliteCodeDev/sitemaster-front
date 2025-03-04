@@ -3,6 +3,7 @@ import useSWR from 'swr';
 import { useEffect, useState } from 'react';
 
 import { toast } from 'sonner';
+import Cbutton from '@/components/interfaz/Cbutton';
 
 const fetcher = (url) =>
     fetch(url, {
@@ -76,7 +77,7 @@ const WebhookControl = ({ instanceName }) => {
     if (!webhookData) return <div>Cargando...</div>;
 
     return (
-        <section className='rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)]'>
+        <section className=' bg-white card-border'>
             <div className='flex justify-start p-4 mb-4 border-b-2'>
                 <h2 className='text-xl font-semibold'>Ajustes de webhook</h2>
             </div>
@@ -118,14 +119,15 @@ const WebhookControl = ({ instanceName }) => {
                 </p>
             </div>
             <div className='px-4 pb-4'>
-                <button
+                <Cbutton
                     onClick={handleSave}
-                    className={`rounded-md px-4 py-2 font-medium text-white ${webhookUrl ? 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)]' : 'bg-gray-400 cursor-not-allowed'
-                        }`}
+                    // className={`rounded-md px-4 py-2 font-medium text-white ${webhookUrl ? 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)]' : 'bg-gray-400 cursor-not-allowed'
+                    //     }`}
+                    classType={"primary"}
                     disabled={!webhookUrl} // Deshabilita el botón si Webhook URL está vacío
                 >
                     Guardar
-                </button>
+                </Cbutton>
             </div>
             {/* <div className='p-4'>
                 <h3 className='text-sm font-semibold text-gray-800 mb-2'>Datos del webhook</h3>

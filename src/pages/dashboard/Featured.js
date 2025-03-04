@@ -26,7 +26,7 @@ export default function Example() {
     return (
         <div className="grid gap-4 lg:grid-cols-2">
             {cards.map((card, index) => (
-                <div key={index} className="flex flex-col bg-white p-6 gap-4 card-border">
+                <div key={index} className="flex flex-col bg-white p-6 gap-4 card-border justify-between">
                     <p className="text-xl font-semibold tracking-tight text-gray-950">{card.title}</p>
                     <p className="text-base text-gray-600">{card.description}</p>
                     <Link
