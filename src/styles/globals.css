@@ -90,6 +90,10 @@ body {
 
     --app-secondary: theme("colors.red.500");
 
+    --app-bg-dark: theme("colors.zinc.900");
+
+    --app-bg-light: theme("colors.zinc.100");
+
     --app-primary-hovered: theme("colors.purple.700");
 
     --button-text-color: theme("colors.white");
