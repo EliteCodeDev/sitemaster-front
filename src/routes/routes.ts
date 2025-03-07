@@ -1,7 +1,7 @@
 export const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export const navigation = [
-  { name: "Prueba gratis", href: "/trial", trial: true },
+  // { name: "Prueba gratis", href: "/trial", trial: true },
   { name: "Tus Websites", href: "/" },
   { name: "Servicios", href: "/services" },
   { name: "Soporte", href: "/suport" },
