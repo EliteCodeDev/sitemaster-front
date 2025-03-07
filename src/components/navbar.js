@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import LogoGravatar from '../components/LogoGravatar'
-import ToggleMode from '../components/ui/toggle-mode'
 import Cbutton from '../components/interfaz/Cbutton'
 import { MainIcon } from './interfaz/Icons'
 import { navigation, userNavigation } from '@/routes/routes'
@@ -133,8 +132,7 @@ export default function Navbar() {
                     </>
                   )}
 
-                  {/* Botón para alternar Modo Oscuro */}
-                   <ToggleMode />
+                
                 </div>
 
                 {/* Botón menú móvil */}
