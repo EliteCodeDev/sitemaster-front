@@ -3,7 +3,9 @@ import { useSession } from 'next-auth/react';
 import InstanceCard from './instanceCard';
 import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 import Link from 'next/link';
+import { format } from "date-fns";
 import { PlusIcon } from '@heroicons/react/24/solid';
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid';
 
 
 const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -32,7 +34,7 @@ const FetchStrapi = () => {
   const jwt = session?.jwt;
 
   const { data, error, isLoading } = useSWR(
-    jwt ? `${strapiUrl}/api/users/me?populate=instances` : null,
+    jwt ? `${strapiUrl}/api/users/me?populate[subscriptions][populate]=instances` : null,
     (url) => fetcher(url, jwt)
   );
 
@@ -49,7 +51,7 @@ const FetchStrapi = () => {
   if (!data) return <OrderSkeleton />;
 
 
-  if (!data?.instances?.length) {
+  if (!data?.subscriptions?.length) {
     return <>
       <div className="bg-white rounded-xl px-6 py-10 text-center shadow-lg w-full mx-auto border border-gray-200 min-h-[400px] flex flex-col justify-center items-center">
         <svg
@@ -85,17 +87,47 @@ const FetchStrapi = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {data.instances.map((sub, index) => (
-        <InstanceCard
-          key={index}
-          instanceId={sub.instanceId}
-          instanceName={sub.instanceName}
-          isActive={sub.isActive}
-          endDate={sub.endDate}
-          serverUrl={sub.server_url}
-        />
-      ))}
+    <div className="space-y-6">
+      {data.subscriptions
+        .sort((a, b) => (a.status_woo === "active" ? -1 : 1)) // Ordena los activos primero
+        .map((sub, index) => (
+          <div key={index}>
+            <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+              {sub.status_woo === "active" ? (
+                <CheckCircleIcon className="w-6 h-6 text-emerald-600" />
+              ) : (
+                <XCircleIcon className="w-6 h-6 text-red-500" />
+              )}
+              Suscripción #{sub.id_woo}
+            </h2>
+  
+            <p className="text-sm text-gray-600">
+              Próximo pago:{" "}
+              <span className="font-medium">
+                {sub.next_payment_date_gmt
+                  ? format(new Date(sub.next_payment_date_gmt), "dd/MM/yyyy")
+                  : "Sin fecha"}
+              </span>
+            </p>
+  
+            {sub.instances?.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {sub.instances.map((instance, idx) => (
+                  <InstanceCard
+                    key={idx}
+                    instanceId={instance.instanceId}
+                    instanceName={instance.instanceName}
+                    isActive={true} // Puedes ajustar según la API
+                    endDate={sub.next_payment_date_gmt}
+                    serverUrl={instance.server_url}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-gray-500 mt-2">Esta suscripción no tiene instancias asociadas.</p>
+            )}
+          </div>
+        ))}
     </div>
   );
 };

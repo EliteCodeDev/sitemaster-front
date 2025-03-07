@@ -11,11 +11,13 @@ function classNames(...classes) {
 export default function Index() {
   const router = useRouter();
 
-
+  
   return (
     <Layout title="Dashboard">
       <InstanceList />
+      
     </Layout>
+    
   );
 };
 
