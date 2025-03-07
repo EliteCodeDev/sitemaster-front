@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import useSWR from 'swr';
 import Link from 'next/link';
@@ -10,7 +11,6 @@ import {
   ClipboardIcon,
 } from '@heroicons/react/24/outline';
 import { toast } from 'sonner';
-import Cbutton from '@/components/interfaz/Cbutton';
 
 const fetchInstanceData = async (url) => {
   try {
@@ -56,11 +56,11 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
   };
 
   return (
-    <div className="flex flex-col bg-white gap-4 card-border">
+    <div className="flex flex-col bg-white rounded-lg shadow-md p-6 gap-4">
       {/* Encabezado */}
       <div className="flex justify-between items-center mb-2">
         <p className="text-lg font-bold">{instanceName}</p>
-        <div className="bg-gray-200 px-2 py-1 rounded-sm inline-block">
+        {/* <div className="bg-gray-200 px-2 py-1 rounded-sm inline-block">
           <p className="text-gray-800 text-xs">
             Expira el{' '}
             {new Date(endDate).toLocaleDateString(undefined, {
@@ -69,23 +69,19 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
               year: 'numeric',
             })}
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* API Key con íconos de ojo y copiar */}
-      <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between card-border">
+      <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between">
         <p className="text-black text-sm font-mono">
           {visibleKey ? instance.token : '********-****-****-****-************'}
         </p>
         <div className="flex space-x-4">
-          <button onClick={toggleKeyVisibility}
-            variant={"transparent"}
-            className="text-gray-500 hover:text-gray-700">
+          <button onClick={toggleKeyVisibility} className="text-gray-500 hover:text-gray-700">
             {visibleKey ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
           </button>
-          <button onClick={copyToClipboard}
-            variant={"transparent"}
-            className="text-gray-500 hover:text-gray-700">
+          <button onClick={copyToClipboard} className="text-gray-500 hover:text-gray-700">
             <ClipboardIcon className="h-5 w-5" />
           </button>
         </div>
@@ -127,12 +123,12 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
       <div className="mt-4 flex justify-between items-center">
         <p
           className={`text-sm font-semibold px-3 py-1 rounded-2xl text-white ${instance.connectionStatus === "open"
-            ? "bg-[var(--app-primary)]"
-            : instance.connectionStatus === "connecting"
-              ? "bg-orange-500"
-              : instance.connectionStatus === "close"
-                ? "bg-green-600"
-                : "bg-gray-600"
+              ? "bg-green-600"
+              : instance.connectionStatus === "connecting"
+                ? "bg-orange-500"
+                : instance.connectionStatus === "close"
+                  ? "bg-red-600"
+                  : "bg-gray-600"
             }`}
         >
           {instance.connectionStatus === "open"
@@ -147,12 +143,10 @@ const InstanceCard = ({ instanceId, instanceName, isActive, endDate, serverUrl }
         {/* Botón de ajustes con Link funcional */}
         {isActive ? (
           <Link href={`/instances/${instanceId}/dashboard`} passHref>
-            <Cbutton
-              // className=""
-              classType={"settings"}
-              startContent={<Cog6ToothIcon className="h-6 w-6" />}>
+            <button className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
+              <Cog6ToothIcon className="h-6 w-6" />
               <span>Ajustes</span>
-            </Cbutton>
+            </button>
           </Link>
         ) : (
           <span className="text-base font-semibold bg-red-500 text-white px-6 py-2 rounded-lg">Tu servicio expiro.</span>

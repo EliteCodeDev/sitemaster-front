@@ -134,8 +134,10 @@ export default function SignIn() {
           </div>
         </form>
 
-        {/* Botón para iniciar sesión con GitHub */}
+        {/* Botón para iniciar sesión con GitHub y Google*/}
+        {/*
         <SignSocial />
+        */}
 
         <p className="mt-10 text-sm text-center leading-6 text-gray-500 dark:text-gray-400">
           ¿No tienes una cuenta?{' '}
