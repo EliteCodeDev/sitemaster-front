@@ -120,7 +120,7 @@ const UserSubscription = () => {
                 <p className="text-lg font-semibold hover:underline">Wazend {order.plan}</p>
               </div> */}
 
-              <p className="text-2xl font-bold">Wazend {order.type} (#{order.id})</p>
+              <p className="text-2xl font-bold">{process.env.NEXT_PUBLIC_BUSINESS_NAME} {order.type} (#{order.id})</p>
               <div className="flex flex-row items-center space-x-2 mt-1 text-gray-500">
                 <div className={`w-3 h-3 rounded-full ${order.statusPlan === 'pending' ? 'bg-yellow-500' : order.statusPlan === 'active' ? 'bg-[var(--app-primary)]' : order.statusPlan === 'expired' ? 'bg-red-500' : 'bg-gray-500'}`} />
                 <p className="text-sm font-bold uppercase">PLAN {order.plan}</p>

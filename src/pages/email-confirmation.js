@@ -14,7 +14,7 @@ export default function EmailConfirm() {
             Te has registrado correctamente.
           </p>
           <p className="mt-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-            Revisa tu correo electrónico para confirmar tu cuenta antes de iniciar sesión en el panel de control de Wazend.
+            Revisa tu correo electrónico para confirmar tu cuenta antes de iniciar sesión en el panel de control de {process.env.NEXT_PUBLIC_BUSINESS_NAME || "business"}.
           </p>
         </div>
       </div>
