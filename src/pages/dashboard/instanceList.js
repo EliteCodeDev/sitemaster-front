@@ -72,7 +72,7 @@ const FetchStrapi = () => {
           />
         </svg>
         <h3 className="mt-4 text-lg font-semibold text-gray-800">
-          ¡Crea tu primera instancia en Wazend!
+          ¡Crea tu primer website en sitemaster!
         </h3>
         <p className="mt-2 text-sm text-gray-600">
           Comience contratando uno de nuestros planes.
