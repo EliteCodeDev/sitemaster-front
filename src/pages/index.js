@@ -14,12 +14,12 @@ export default function Index() {
 
 
   return (
-    <Layout title="Tus instancias">
+    <Layout title="Tus Webs">
 
 
       <div className="flex flex-col space-y-10">
         <ListInstances />
-        <Featured />
+        {/* <Featured /> */}
       </div>
 
 

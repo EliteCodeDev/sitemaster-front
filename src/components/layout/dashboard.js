@@ -30,7 +30,7 @@ export default function Layout({ children, title }) {
                                         <PlusIcon className="h-5" />
                                     }
                                 >
-                                    <span className="">Crea una instancia</span>
+                                    <span className="">Nueva Website</span>
                                 </Cbutton>
                             </Link>
                         </div>
