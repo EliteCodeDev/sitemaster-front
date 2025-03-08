@@ -201,7 +201,7 @@ const FetchWebsites = () => {
               )}
               Suscripción #{sub.id_woo || sub.id_hotmart || 'N/A'}
             </h2>
-  
+
             <p className="text-sm text-gray-600">
               Próximo pago:{" "}
               <span className="font-medium">
@@ -210,9 +210,9 @@ const FetchWebsites = () => {
                   : "Sin fecha"}
               </span>
             </p>
-  
+
             {sub.websites?.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div className="grid grid-cols-1 gap-4 mt-4">
                 {sub.websites.map((website, idx) => (
                   <WebsiteCard
                     key={idx}

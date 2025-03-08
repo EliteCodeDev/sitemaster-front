@@ -28,7 +28,7 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
   const fullDomain = domainName && domainExtension ? `${domainName}${domainExtension}` : "No configurado";
 
   return (
-    <div className="flex flex-col bg-white rounded-lg shadow-md p-6 gap-4">
+    <div className="flex flex-col bg-white rounded-lg shadow-md p-6 gap-4 card-border">
       {/* Encabezado */}
       <div className="flex justify-between items-center mb-2">
         <p className="text-lg font-bold">{websiteName}</p>
@@ -52,20 +52,20 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
       */}
 
       {/* Datos del sitio web */}
-      <div className="group block flex-shrink-0"> 
+      <div className="group block flex-shrink-0">
         <Link href={`https://${fullDomain}`} passHref>
           <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="flex h-10 w-10 rounded-full bg-emerald-200 items-center justify-center">
-                  <GlobeAltIcon className="h-7 w-10 text-emerald-600" />
-                </div>
-                <div className="ml-3">
-                  <p className="text-md font-semibold text-black">{fullDomain}</p>
-                  <p className="text-sm font-base text-gray-500">
-                    {purpose || "Propósito no definido"}
-                  </p>
-                </div>
+            <div className="flex items-center">
+              <div className="flex h-10 w-10 rounded-full bg-emerald-200 items-center justify-center">
+                <GlobeAltIcon className="h-7 w-10 text-emerald-600" />
               </div>
+              <div className="ml-3">
+                <p className="text-md font-semibold text-black">{fullDomain}</p>
+                <p className="text-sm font-base text-gray-500">
+                  {purpose || "Propósito no definido"}
+                </p>
+              </div>
+            </div>
           </div>
         </Link>
       </div>
@@ -80,9 +80,8 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
       {/* Estado y botones: Abrir y Ajustes juntos */}
       <div className="mt-4 flex justify-between items-center">
         <p
-          className={`text-sm font-semibold px-3 py-1 rounded-2xl text-white ${
-            isActive ? "bg-green-600" : "bg-red-600"
-          }`}
+          className={`text-sm font-semibold px-3 py-1 rounded-2xl text-white ${isActive ? "bg-green-600" : "bg-red-600"
+            }`}
         >
           {isActive ? "Activo" : "Inactivo"}
         </p>
