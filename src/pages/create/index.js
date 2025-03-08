@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import Cbutton from '@/components/interfaz/Cbutton';
 import { strapiUrl } from '@/routes/routes';
 import { useRouter } from 'next/router';
-import { toast } from 'sonner'; // Assuming you're using react-hot-toast for notifications
+import { toast } from 'sonner';
 
 export default function Index() {
   const [formData, setFormData] = useState(null)
@@ -213,15 +213,15 @@ export default function Index() {
       <main className="container mx-auto py-10 px-4">
         {formData && !isSubmitting ? (
           <div className="max-w-3xl mx-auto">
-            <div className="bg-green-50 p-4 rounded-lg mb-6 border border-green-200">
-              <h2 className="text-xl font-semibold text-green-800 mb-2">Website Configuration Complete!</h2>
-              <p className="text-green-700">
-                Your website configuration has been saved. Here's a summary of your choices:
+            <div className="bg-[color:var(--app-primary)] bg-opacity-10 p-4 rounded-lg mb-6 border border-[color:var(--app-primary)] border-opacity-20">
+              <h2 className="text-xl font-semibold text-[color:var(--app-primary)] mb-2">¡Configuración del Sitio Web Completada!</h2>
+              <p className="text-[color:var(--app-primary)]">
+                La configuración de tu sitio web ha sido guardada. Aquí tienes un resumen de tus elecciones:
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-md p-6 overflow-hidden">
-              <h3 className="text-lg font-medium mb-4">Configuration JSON:</h3>
+              <h3 className="text-lg font-medium mb-4">Configuración JSON:</h3>
               <pre className="bg-gray-50 p-4 rounded border overflow-x-auto text-sm">
                 {JSON.stringify(formData, null, 2)}
               </pre>
@@ -232,7 +232,7 @@ export default function Index() {
                   classType="primary"
                   disabled={isSubmitting}
                 >
-                  Create Another Website
+                  Crear Otro Sitio Web
                 </Cbutton>
               </div>
             </div>
@@ -249,7 +249,7 @@ export default function Index() {
         {isSubmitting && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[color:var(--app-primary)] mx-auto mb-4"></div>
               <p className="text-lg">Guardando tu sitio web...</p>
             </div>
           </div>

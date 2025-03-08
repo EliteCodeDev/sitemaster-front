@@ -55,7 +55,9 @@ export default function FormStep({ fields }: FormStepProps) {
                     <FormLabel>
                       {field.label}
                       {field.required && (
-                        <span className="text-red-500 ml-1">*</span>
+                        <span className="text-[color:var(--app-primary)] ml-1">
+                          *
+                        </span>
                       )}
                     </FormLabel>
                     <FormControl>
@@ -86,7 +88,9 @@ export default function FormStep({ fields }: FormStepProps) {
                     <FormLabel>
                       {field.label}
                       {field.required && (
-                        <span className="text-red-500 ml-1">*</span>
+                        <span className="text-[color:var(--app-primary)] ml-1">
+                          *
+                        </span>
                       )}
                     </FormLabel>
                     <FormControl>
@@ -112,7 +116,9 @@ export default function FormStep({ fields }: FormStepProps) {
                     <FormLabel>
                       {field.label}
                       {field.required && (
-                        <span className="text-red-500 ml-1">*</span>
+                        <span className="text-[color:var(--app-primary)] ml-1">
+                          *
+                        </span>
                       )}
                     </FormLabel>
                     <Select
@@ -149,20 +155,21 @@ export default function FormStep({ fields }: FormStepProps) {
                     <FormLabel>
                       {field.label}
                       {field.required && (
-                        <span className="text-red-500 ml-1">*</span>
+                        <span className="text-[color:var(--app-primary)] ml-1">
+                          *
+                        </span>
                       )}
                     </FormLabel>
                     <FormControl>
                       <RadioGroup
                         onValueChange={formField.onChange}
                         defaultValue={formField.value}
-                        className="flex  space-y-1"
+                        className="flex space-y-1"
                       >
                         {field.options.map((option: any) => (
                           <div
                             key={option.value}
-                            className="flex items-center space-x-2 border rounded-lg p-4 shadow transition
-                            "
+                            className="flex items-center space-x-2 border rounded-lg p-4 shadow transition hover:border-[color:var(--app-primary)]"
                             onClick={() => formField.onChange(option.value)}
                           >
                             <RadioGroupItem
@@ -195,7 +202,9 @@ export default function FormStep({ fields }: FormStepProps) {
                       <FormLabel>
                         {field.label}
                         {field.required && (
-                          <span className="text-red-500 ml-1">*</span>
+                          <span className="text-[color:var(--app-primary)] ml-1">
+                            *
+                          </span>
                         )}
                       </FormLabel>
                     </div>
@@ -267,7 +276,9 @@ function ArrayField({ name, label, itemTemplate, required }: ArrayFieldProps) {
       <div className="flex justify-between items-center">
         <FormLabel>
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && (
+            <span className="text-[color:var(--app-primary)] ml-1">*</span>
+          )}
         </FormLabel>
         <Button
           type="button"
@@ -282,13 +293,13 @@ function ArrayField({ name, label, itemTemplate, required }: ArrayFieldProps) {
           }}
         >
           <Plus className="h-4 w-4 mr-2" />
-          Add
+          Añadir
         </Button>
       </div>
 
       {fields.length === 0 && (
         <div className="text-sm text-muted-foreground italic">
-          No items added yet. Click the "Add" button to add one.
+          No hay elementos añadidos aún. Haz clic en "Añadir" para agregar uno.
         </div>
       )}
 
@@ -301,7 +312,7 @@ function ArrayField({ name, label, itemTemplate, required }: ArrayFieldProps) {
             className="absolute top-2 right-2"
             onClick={() => remove(index)}
           >
-            <Trash2 className="h-4 w-4 text-red-500" />
+            <Trash2 className="h-4 w-4 text-[color:var(--app-primary)]" />
           </Button>
 
           <div className="grid gap-4 mt-2">
@@ -323,7 +334,7 @@ function ArrayField({ name, label, itemTemplate, required }: ArrayFieldProps) {
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select an option" />
+                              <SelectValue placeholder="Selecciona una opción" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>

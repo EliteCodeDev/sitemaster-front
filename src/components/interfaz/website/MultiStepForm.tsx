@@ -25,12 +25,14 @@ interface MultiStepFormProps {
   }[];
   onSubmit: (data: any) => void;
   validationSchema: z.ZodObject<any>;
+  isSubmitting?: boolean;
 }
 
 export default function MultiStepForm({
   steps,
   onSubmit,
   validationSchema,
+  isSubmitting = false,
 }: MultiStepFormProps) {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -61,9 +63,7 @@ export default function MultiStepForm({
   const submitForm = (data: any) => {
     onSubmit(data);
   };
-  console.log(errors);
-  console.log(steps.length);
-  console.log(currentStep);
+
   return (
     <div className="max-w-3xl mx-auto">
       {/* Progress indicator */}
@@ -74,13 +74,13 @@ export default function MultiStepForm({
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
                   index < currentStep
-                    ? "bg-primary border-primary text-primary-foreground "
+                    ? "bg-[color:var(--app-primary)] border-[color:var(--app-primary)] text-white"
                     : index === currentStep
-                    ? "border-primary text-primary"
+                    ? "border-[color:var(--app-primary)] text-[color:var(--app-primary)]"
                     : "border-gray-300 text-gray-400"
                 }`}
               >
-                {index < currentStep - 1 ? (
+                {index < currentStep ? (
                   <Check className="h-5 w-5" />
                 ) : (
                   <span>{index + 1}</span>
@@ -89,16 +89,18 @@ export default function MultiStepForm({
               <span
                 className={`text-xs mt-2 ${
                   index <= currentStep
-                    ? "text-primary font-medium"
+                    ? "text-[color:var(--app-primary)] font-medium"
                     : "text-gray-500"
                 }`}
               >
                 {step.title}
               </span>
-              {index < steps.length && (
+              {index < steps.length - 1 && (
                 <div
                   className={`h-[2px] w-24 mt-4 hidden sm:block ${
-                    index < currentStep ? "bg-primary" : "bg-gray-200"
+                    index < currentStep
+                      ? "bg-[color:var(--app-primary)]"
+                      : "bg-gray-200"
                   }`}
                 />
               )}
@@ -127,10 +129,11 @@ export default function MultiStepForm({
                 type="button"
                 variant="outline"
                 onClick={goToPreviousStep}
-                disabled={currentStep === 0}
+                disabled={currentStep === 0 || isSubmitting}
+                className="border-[color:var(--app-primary)] text-[color:var(--app-primary)] hover:bg-[color:var(--app-primary)] hover:bg-opacity-10"
               >
                 <ChevronLeft className="mr-2 h-4 w-4" />
-                Atras
+                Atrás
               </Button>
               <Button
                 type="button"
@@ -149,6 +152,8 @@ export default function MultiStepForm({
                     }
                   }
                 }}
+                disabled={isSubmitting}
+                className="bg-[color:var(--app-primary)] hover:bg-[color:var(--app-primary)] hover:opacity-90"
               >
                 {currentStep === steps.length - 1 ? (
                   "Enviar"
