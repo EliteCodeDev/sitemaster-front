@@ -161,11 +161,7 @@ export default function FormStep({ fields }: FormStepProps) {
                       )}
                     </FormLabel>
                     <FormControl>
-                      <RadioGroup
-                        onValueChange={formField.onChange}
-                        defaultValue={formField.value}
-                        className="flex space-y-1"
-                      >
+                      <div className="flex flex-col space-y-2">
                         {field.options.map((option: any) => (
                           <div
                             key={option.value}
@@ -173,16 +169,19 @@ export default function FormStep({ fields }: FormStepProps) {
                             onClick={() => formField.onChange(option.value)}
                           >
                             <RadioGroupItem
-                              className=""
                               value={option.value}
                               id={`${fieldName}-${option.value}`}
+                              checked={formField.value === option.value}
+                              onCheckedChange={() => {
+                                formField.onChange(option.value);
+                              }}
                             />
                             <Label htmlFor={`${fieldName}-${option.value}`}>
                               {option.label}
                             </Label>
                           </div>
                         ))}
-                      </RadioGroup>
+                      </div>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
