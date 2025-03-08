@@ -6,6 +6,7 @@ import {
   EyeIcon,
   EyeSlashIcon,
   ClipboardIcon,
+  ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
 import { toast } from 'sonner';
 
@@ -24,7 +25,7 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
     }
   };
 
-  const fullDomain = domainName && domainExtension ? `${domainName}.${domainExtension}` : "No configurado";
+  const fullDomain = domainName && domainExtension ? `${domainName}${domainExtension}` : "No configurado";
 
   return (
     <div className="flex flex-col bg-white rounded-lg shadow-md p-6 gap-4">
@@ -34,6 +35,7 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
       </div>
 
       {/* API Key con íconos de ojo y copiar */}
+      {/*
       <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between">
         <p className="text-black text-sm font-mono">
           {visibleKey ? apiKey : '**********-****-****-****-************'}
@@ -47,22 +49,25 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
           </button>
         </div>
       </div>
+      */}
 
       {/* Datos del sitio web */}
-      <div className="mt-6 group block flex-shrink-0">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <div className="inline-block h-10 w-10 rounded-full bg-emerald-100 items-center justify-center">
-              <GlobeAltIcon className="h-6 w-6 text-emerald-600" />
-            </div>
-            <div className="ml-3">
-              <p className="text-md font-semibold text-black">{fullDomain}</p>
-              <p className="text-sm font-base text-gray-500">
-                {purpose || "Propósito no definido"}
-              </p>
-            </div>
+      <div className="group block flex-shrink-0"> 
+        <Link href={`https://${fullDomain}`} passHref>
+          <div className="bg-gray-200 p-3 rounded-sm flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="flex h-10 w-10 rounded-full bg-emerald-200 items-center justify-center">
+                  <GlobeAltIcon className="h-7 w-10 text-emerald-600" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-md font-semibold text-black">{fullDomain}</p>
+                  <p className="text-sm font-base text-gray-500">
+                    {purpose || "Propósito no definido"}
+                  </p>
+                </div>
+              </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Descripción */}
@@ -72,7 +77,7 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
         </div>
       )}
 
-      {/* Estado y botón de ajustes */}
+      {/* Estado y botones: Abrir y Ajustes juntos */}
       <div className="mt-4 flex justify-between items-center">
         <p
           className={`text-sm font-semibold px-3 py-1 rounded-2xl text-white ${
@@ -81,18 +86,27 @@ const WebsiteCard = ({ websiteId, websiteName, isActive, endDate, serverUrl, pur
         >
           {isActive ? "Activo" : "Inactivo"}
         </p>
-
-        {/* Botón de ajustes con Link funcional */}
-        {isActive ? (
-          <Link href={`/websites/${websiteId}/dashboard`} passHref>
+        <div className="flex gap-4">
+          {/* Botón de abrir con Link funcional */}
+          <Link href={`https://${fullDomain}`} passHref>
             <button className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
-              <Cog6ToothIcon className="h-6 w-6" />
-              <span>Ajustes</span>
+              <ArrowTopRightOnSquareIcon className="h-6 w-6" />
+              <span>Abrir</span>
             </button>
           </Link>
-        ) : (
-          <span className="text-base font-semibold bg-red-500 text-white px-6 py-2 rounded-lg">Tu servicio expiró.</span>
-        )}
+
+          {/* Botón de ajustes con Link funcional */}
+          {isActive ? (
+            <Link href={`/websites/${websiteId}/dashboard`} passHref>
+              <button className="hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
+                <Cog6ToothIcon className="h-6 w-6" />
+                <span>Ajustes</span>
+              </button>
+            </Link>
+          ) : (
+            <span className="text-base font-semibold bg-red-500 text-white px-6 py-2 rounded-lg">Tu servicio expiró.</span>
+          )}
+        </div>
       </div>
     </div>
   );
