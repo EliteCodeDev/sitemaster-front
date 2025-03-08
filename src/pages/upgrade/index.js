@@ -1,12 +1,12 @@
 
-import Pricing from './Pricing';
+import PricingS from './PricingS';
 import Layout from '../../components/layout/dashboard';
 
 export default function UpgradePage() {
 
   return (
     <Layout>
-      <Pricing />
+      <PricingS />
     </Layout>
   );
 }
