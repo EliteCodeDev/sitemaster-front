@@ -2,12 +2,17 @@ import Layout from '@/components/layout/dashboard'
 import { useState } from 'react'
 import MultiStepForm from '@/components/interfaz/website/MultiStepForm'
 import { websiteCreatorSchema } from '@/lib/stepSchema'
-import { id } from 'date-fns/locale'
 import { useSession } from 'next-auth/react';
 import Cbutton from '@/components/interfaz/Cbutton';
+import { strapiUrl } from '@/routes/routes';
+import { useRouter } from 'next/router';
+import { toast } from 'sonner'; // Assuming you're using react-hot-toast for notifications
+
 export default function Index() {
   const [formData, setFormData] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const { data: session } = useSession()
+  const router = useRouter()
 
   // Define the form steps configuration
   const formSteps = [
@@ -76,12 +81,6 @@ export default function Index() {
           type: "text",
           placeholder: "Escribe tu propia extensión...",
         }
-        // {
-        //   name: "domainPurpose",
-        //   label: "¿Qué esperas lograr con tu dominio?",
-        //   type: "textarea",
-        //   placeholder: "Describe tus expectativas...",
-        // },
       ]
     },
     {
@@ -89,18 +88,6 @@ export default function Index() {
       title: "Preferencias de Diseño",
       description: "Elige cómo debería verse tu sitio web",
       fields: [
-        // {
-        //   name: "colorScheme",
-        //   label: "Esquema de Colores",
-        //   type: "select",
-        //   options: [
-        //     { value: "light", label: "Claro" },
-        //     { value: "dark", label: "Oscuro" },
-        //     { value: "colorful", label: "Colorido" },
-        //     { value: "minimal", label: "Minimalista" },
-        //   ],
-        //   required: true,
-        // },
         {
           name: "layout",
           label: "Tema de Diseño",
@@ -113,19 +100,7 @@ export default function Index() {
           ],
           required: true,
         },
-        // {
-        //   name: "features",
-        //   label: "Características Especiales",
-        //   type: "checkbox",
-        //   options: [
-        //     { value: "animations", label: "Animaciones" },
-        //     { value: "darkMode", label: "Modo Oscuro" },
-        //     { value: "multilingual", label: "Soporte Multilingüe" },
-        //     { value: "accessibility", label: "Características de Accesibilidad" },
-        //   ],
-        // },
       ],
-
     },
     {
       id: "resume",
@@ -178,6 +153,46 @@ export default function Index() {
     }
   ]
 
+  const saveWebsite = async (requestData) => {
+    try {
+      setIsSubmitting(true);
+
+      // Extract only the data property from the full requestData
+      const { data } = requestData;
+
+      // Add default values for required fields that might be missing
+      const websiteData = {
+        ...data,
+        isActive: true,
+        // Add any other default fields here if needed
+      };
+
+      const response = await fetch(`${strapiUrl}/api/websites`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data: websiteData }),
+      });
+
+      if (response.ok) {
+        toast.success('El sitio web ha sido creado exitosamente.');
+        // Redirect to home page
+        router.replace('/');
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.error?.message || 'Error al crear el sitio web.');
+        console.error('Error creating website:', errorData);
+      }
+    } catch (error) {
+      toast.error('Hubo un error al procesar tu solicitud.');
+      console.error('Exception when creating website:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleFormSubmit = (data) => {
     const requestData = {
       data: data,
@@ -188,14 +203,15 @@ export default function Index() {
     }
     setFormData(requestData)
     console.log("Form submitted with data:", data)
+
+    // Save the website data
+    saveWebsite(requestData);
   }
 
   return (
     <Layout>
       <main className="container mx-auto py-10 px-4">
-        {/* <h1 className="text-3xl font-bold text-center mb-8">Website Creator</h1> */}
-
-        {formData ? (
+        {formData && !isSubmitting ? (
           <div className="max-w-3xl mx-auto">
             <div className="bg-green-50 p-4 rounded-lg mb-6 border border-green-200">
               <h2 className="text-xl font-semibold text-green-800 mb-2">Website Configuration Complete!</h2>
@@ -214,6 +230,7 @@ export default function Index() {
                 <Cbutton
                   onClick={() => setFormData(null)}
                   classType="primary"
+                  disabled={isSubmitting}
                 >
                   Create Another Website
                 </Cbutton>
@@ -221,10 +238,23 @@ export default function Index() {
             </div>
           </div>
         ) : (
-          <MultiStepForm steps={formSteps} onSubmit={handleFormSubmit} validationSchema={websiteCreatorSchema} />
+          <MultiStepForm
+            steps={formSteps}
+            onSubmit={handleFormSubmit}
+            validationSchema={websiteCreatorSchema}
+            isSubmitting={isSubmitting}
+          />
+        )}
+
+        {isSubmitting && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+              <p className="text-lg">Guardando tu sitio web...</p>
+            </div>
+          </div>
         )}
       </main>
     </Layout>
   )
 }
-

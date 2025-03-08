@@ -3,9 +3,6 @@ import { useSession } from 'next-auth/react';
 import Loader from '../../components/loaders/OrderSkeleton';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { useStrapiData } from '../../services/strapiService';
-
-// Importaciones de shadcn (Tabs) y Hero UI (Card)
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Card, CardBody } from '@heroui/card';
 
 function classNames(...classes) {
@@ -15,13 +12,13 @@ function classNames(...classes) {
 export default function SubscriptionPlans() {
   const { data: session } = useSession();
   const email = session?.user?.email || '';
-
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState('mensual');
 
   // Obtenemos los datos de la tabla "products" de Strapi
-  const { data: products, error, isLoading } = useStrapiData('products');
-  console.log(products);
+  const { data: products, error, isLoading } = useStrapiData('products?sort[0]=price:asc');
+
   // Manejo de estados de carga y error
   if (isLoading) {
     return <Loader />;
@@ -35,12 +32,9 @@ export default function SubscriptionPlans() {
     );
   }
 
-  // Filtramos los productos según el período de facturación
-  const monthlyProducts = products.filter(
-    (product) => product.billing_period?.toLowerCase() === 'mensual'
-  );
-  const annualProducts = products.filter(
-    (product) => product.billing_period?.toLowerCase() === 'anual'
+  // Filtramos los productos según el período de facturación seleccionado
+  const filteredProducts = products.filter(
+    (product) => product.billing_period?.toLowerCase() === billingPeriod
   );
 
   // Función para redirigir al checkout
@@ -65,113 +59,143 @@ export default function SubscriptionPlans() {
       <div
         key={product.id}
         className={classNames(
+          'relative rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl h-full',
           product.featured
-            ? 'bg-gradient-to-b from-[var(--app-primary)] to-white via-white'
-            : 'bg-white',
-          'rounded-lg p-8 ring-1 ring-gray-200 xl:p-10'
+            ? 'bg-gradient-to-br from-white via-purple-50 to-[var(--app-primary)]/10 shadow-lg'
+            : 'bg-white border border-gray-200'
         )}
       >
-        <h3 id={product.id} className="text-gray-900 text-xl font-semibold leading-8">
-          {product.name}
-        </h3>
-        <p className="mt-6 flex items-baseline gap-x-1">
-          <span className="text-gray-900 text-4xl font-bold tracking-tight">
-            {product.price}
-          </span>
-        </p>
-        <p className="text-gray-600 mt-4 text-sm leading-6">
-          {product.billing_period}
-        </p>
-
-        <div>
-          <button
-            onClick={() => handleCheckout(product.url)}
-            disabled={loading}
-            className={`w-full mt-6 block rounded-md py-3 px-3 text-center text-md font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${loading
-              ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
-              : 'bg-[var(--app-primary)] text-white shadow-sm hover:bg-[var(--app-primary-hovered)] focus-visible:outline-[var(--app-primary)]'
-              }`}
-          >
-            {loading ? 'Cargando...' : 'Seleccionar plan'}
-          </button>
-
-          {showModal && (
-            <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50 z-50">
-              <div className="bg-white p-8 rounded-lg shadow-lg">
-                <div className="flex justify-center items-center">
-                  <div className="w-10 h-10 border-4 border-t-[var(--app-primary)] border-gray-300 rounded-full animate-spin" />
-                </div>
-                <p className="text-center mt-4">Redirigiendo al checkout...</p>
+        {product.featured && (
+          <div className="absolute right-0 top-12">
+            <div className="relative">
+              <div className="bg-[var(--app-primary)] text-white text-xs font-bold py-1 px-3 rounded-l-lg shadow-md">
+                Recomendado
               </div>
             </div>
-          )}
+          </div>
+        )}
+
+        <div className={classNames(
+          product.featured ? 'border-b-2 border-[var(--app-primary)]/30' : 'bg-gray-100',
+          'p-4'
+        )}>
+          <h3 id={product.id} className="text-xl font-bold text-center text-gray-900">
+            {product.name}
+          </h3>
         </div>
 
-        {/* Si deseas mostrar características (features), descomenta:
-        <ul role="list" className="mt-8 space-y-3 text-sm leading-6 xl:mt-10 text-black">
-          {product.features?.map((feature, index) => (
-            <li key={index} className="flex gap-x-3">
-              <CheckIcon className="text-[var(--app-primary)] h-6 w-6 flex-none rounded-full bg-[var(--app-primary)] p-1" aria-hidden="true" />
-              {feature}
-            </li>
-          ))}
-        </ul> */}
+        <div className="p-6">
+          <div className="flex justify-center">
+            <p className="flex items-baseline">
+              <span className={classNames(
+                product.featured ? 'text-[var(--app-primary)]' : 'text-gray-900',
+                'text-4xl font-bold tracking-tight'
+              )}>
+                ${product.price}/mes
+              </span>
+            </p>
+          </div>
+
+          <p className="text-gray-600 mt-2 text-sm text-center font-medium">
+            {product.billing_period}
+          </p>
+
+          {/* Si deseas mostrar características (features), descomenta: */}
+          <div className="mt-6 space-y-4">
+            {product.features?.map((feature, index) => (
+              <div key={index} className="flex items-start">
+                <CheckIcon
+                  className={classNames(
+                    product.featured ? 'text-[var(--app-primary)]' : 'text-green-500',
+                    'h-5 w-5 flex-shrink-0 mt-0.5'
+                  )}
+                  aria-hidden="true"
+                />
+                <span className="ml-3 text-sm text-gray-700">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <button
+              onClick={() => handleCheckout(product.url)}
+              disabled={loading}
+              className={`w-full block rounded-lg py-3 px-3 text-center text-md font-semibold leading-6 transition-all duration-200 ${loading
+                ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                : product.featured
+                  ? 'bg-[var(--app-primary)] text-white shadow-md hover:shadow-lg hover:bg-[var(--app-primary)]/90'
+                  : 'bg-white text-[var(--app-primary)] border border-[var(--app-primary)] hover:bg-[var(--app-primary)]/5'
+                }`}
+            >
+              {loading ? 'Cargando...' : 'Seleccionar plan'}
+            </button>
+          </div>
+        </div>
       </div>
     );
   };
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <div className="text-center">
-        <p className="font-semibold tracking-tight text-gray-900 sm:text-4xl text-4xl">
+    <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="text-center mb-10">
+        <h2 className="font-bold text-gray-900 text-4xl mb-3">
           Elige un plan
-        </p>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-md leading-8 text-gray-600">
+        </h2>
+        <p className="mx-auto max-w-2xl text-lg text-gray-600">
           Encuentra el plan adecuado para ti
         </p>
       </div>
 
-      {/* Tabs de shadcn para mostrar planes mensuales o anuales */}
-      <Tabs defaultValue="mensual" className="mt-8" aria-label="Planes">
-        <TabsList>
-          <TabsTrigger value="mensual">Mensual</TabsTrigger>
-          <TabsTrigger value="anual">Anual</TabsTrigger>
-        </TabsList>
+      {/* Selector de período de facturación estilizado */}
+      <div className="flex justify-center mb-12">
+        <div className="inline-flex p-1.5 rounded-full bg-gray-100 shadow-inner">
+          <button
+            onClick={() => setBillingPeriod('mensual')}
+            className={`px-8 py-3 text-lg font-medium rounded-full transition-all ${billingPeriod === 'mensual'
+              ? 'bg-[var(--app-primary)] text-white shadow-md'
+              : 'text-gray-700 hover:bg-gray-200'
+              }`}
+          >
+            Mensual
+          </button>
+          <button
+            onClick={() => setBillingPeriod('anual')}
+            className={`px-8 py-3 text-lg font-medium rounded-full transition-all ${billingPeriod === 'anual'
+              ? 'bg-[var(--app-primary)] text-white shadow-md'
+              : 'text-gray-700 hover:bg-gray-200'
+              }`}
+          >
+            Anual
+          </button>
+        </div>
+      </div>
 
-        {/* Contenido de la pestaña "Mensual" */}
-        <TabsContent value="mensual">
-          <Card>
-            <CardBody>
-              {monthlyProducts.length > 0 ? (
-                <div className="isolate mx-auto mt-4 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                  {monthlyProducts.map(renderProductCard)}
-                </div>
-              ) : (
-                <p className="mt-4 text-center text-gray-500">
-                  No hay planes mensuales disponibles.
-                </p>
-              )}
-            </CardBody>
-          </Card>
-        </TabsContent>
+      {/* Contenedor de tarjetas sin fondo, en grid responsivo */}
+      <div className="bg-transparent pb-6 w-full mx-auto">
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {filteredProducts.map(renderProductCard)}
+          </div>
+        ) : (
+          <div className="text-center py-10 rounded-lg bg-gray-50 max-w-md mx-auto">
+            <p className="text-gray-500 text-lg">
+              No hay planes {billingPeriod}es disponibles.
+            </p>
+          </div>
+        )}
+      </div>
 
-        {/* Contenido de la pestaña "Anual" */}
-        <TabsContent value="anual">
-          <Card>
-            <CardBody>
-              {annualProducts.length > 0 ? (
-                <div className="isolate mx-auto mt-4 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                  {annualProducts.map(renderProductCard)}
-                </div>
-              ) : (
-                <p className="mt-4 text-center text-gray-500">
-                  No hay planes anuales disponibles.
-                </p>
-              )}
-            </CardBody>
-          </Card>
-        </TabsContent>
-      </Tabs>
+      {/* Modal de carga */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+          <div className="bg-white p-8 rounded-xl shadow-2xl">
+            <div className="flex justify-center items-center">
+              <div className="w-12 h-12 border-4 border-t-[var(--app-primary)] border-gray-200 rounded-full animate-spin" />
+            </div>
+            <p className="text-center mt-6 text-gray-800 font-medium">Redirigiendo al checkout...</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
