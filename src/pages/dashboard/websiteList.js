@@ -120,6 +120,7 @@ const FetchWebsites = () => {
                       websiteId={website.websiteId}
                       websiteName={website.websiteName}
                       statusWoo={statusWoo}
+                      isActived={website.initConfiguration}
                       endDate={sub.next_payment_date_gmt}
                       serverUrl={website.server_url}
                       purpose={website.purpose}
