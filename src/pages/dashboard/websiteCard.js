@@ -5,6 +5,7 @@ import {
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
 import ScreenshotImage from '@/components/interfaz/ScreenshotImage';
+import { WordPressIcon } from '@/components/interfaz/Icons'; '../../components/interfaz/Icons';
 
 const WebsiteCard = ({
   websiteId,
@@ -119,8 +120,8 @@ const WebsiteCard = ({
               className="w-full sm:w-auto"
             >
               <button className="w-full hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
-                <ArrowTopRightOnSquareIcon className="h-6 w-6" />
-                <span>Abrir</span>
+                <WordPressIcon className="h-6 w-6" />
+                <span className='text-gray-800'>Wp Admin</span>
               </button>
             </Link>
 
