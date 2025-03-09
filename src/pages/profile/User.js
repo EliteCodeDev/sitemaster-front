@@ -127,7 +127,7 @@ export default function User() {
       </div>
 
       <div className="w-full max-w-3xl mx-auto bg-white card-border">
-        <div className="flex flex-col p-10">
+        <div className="flex flex-col p-4">
           <div className="flex items-center space-x-4">
             <LogoGravatar
               email={session.user.email}
