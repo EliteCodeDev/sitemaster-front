@@ -11,6 +11,8 @@ function classNames(...classes) {
 
 export default function SubscriptionPlans() {
   const { data: session } = useSession();
+  const name = session?.user?.name || '';
+
   const email = session?.user?.email || '';
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +45,7 @@ export default function SubscriptionPlans() {
       alert('Debes iniciar sesión para continuar.');
       return;
     }
-    const checkoutUrl = `${baseUrl}?billing_email=${encodeURIComponent(email)}`;
+    const checkoutUrl = `${baseUrl}?name=${name}&email=${encodeURIComponent(email)}`;
     setLoading(true);
     setShowModal(true);
     setTimeout(() => {
@@ -148,10 +150,10 @@ export default function SubscriptionPlans() {
 
       {/* Selector de período de facturación estilizado */}
       <div className="flex justify-center mb-12">
-        <div className="inline-flex p-1.5 rounded-full bg-gray-100 shadow-inner">
+        <div className="inline-flex px-1.5 rounded-full bg-white shadow-inner">
           <button
             onClick={() => setBillingPeriod('mensual')}
-            className={`px-8 py-3 text-lg font-medium rounded-full transition-all ${billingPeriod === 'mensual'
+            className={`px-8 py-3 text-md font-medium rounded-full transition-all ${billingPeriod === 'mensual'
               ? 'bg-[var(--app-primary)] text-white shadow-md'
               : 'text-gray-700 hover:bg-gray-200'
               }`}
@@ -160,7 +162,7 @@ export default function SubscriptionPlans() {
           </button>
           <button
             onClick={() => setBillingPeriod('anual')}
-            className={`px-8 py-3 text-lg font-medium rounded-full transition-all ${billingPeriod === 'anual'
+            className={`px-8 py-3 text-md font-medium rounded-full transition-all ${billingPeriod === 'anual'
               ? 'bg-[var(--app-primary)] text-white shadow-md'
               : 'text-gray-700 hover:bg-gray-200'
               }`}
