@@ -67,8 +67,7 @@ const ScreenshotImage = ({
   };
 
   const handleImageError = () => {
-    const errorMsg =
-      "Error al cargar la captura. El sitio web podría estar bloqueando el acceso.";
+    const errorMsg = "Error al cargar la imagen. Intente de nuevo más tarde.";
     setError(errorMsg);
     if (onError) onError(errorMsg);
   };
@@ -112,10 +111,11 @@ const ScreenshotImage = ({
   if (error) {
     return (
       <div
-        className={`screenshot-error ${className}`}
+        className={`screenshot-error ${className} grid place-items-center text-center text-sm p-2`}
         style={{ width, height }}
       >
         {error}
+        <p>Url: {url}</p>
       </div>
     );
   }
