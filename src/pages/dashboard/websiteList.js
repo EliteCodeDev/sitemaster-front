@@ -218,8 +218,8 @@ const FetchWebsites = () => {
                     key={idx}
                     websiteId={website.websiteId}
                     websiteName={website.websiteName}
-                    isActive={website.isActive}
-                    endDate={sub.next_payment_date_gmt || website.endDate}
+                    statusWoo={sub.status_woo}
+                    endDate={sub.next_payment_date_gmt}
                     serverUrl={website.server_url}
                     purpose={website.purpose}
                     description={website.description}
