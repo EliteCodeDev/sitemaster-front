@@ -12,8 +12,8 @@ function classNames(...classes) {
 export default function Supports() {
   const { data: session } = useSession();
 
-  // Obtenemos los datos de la tabla "suports" de Strapi
-  const { data: suports, error, isLoading } = useStrapiData('suports');
+  // Obtenemos los datos de la tabla "supports" de Strapi
+  const { data: supports, error, isLoading } = useStrapiData('suports');
 
   // Estados para el manejo de la carga
   const [loading, setLoading] = useState(false);
@@ -138,9 +138,9 @@ export default function Supports() {
 
       {/* Contenedor de tarjetas sin fondo, en grid responsivo */}
       <div className="bg-transparent pb-6 w-full mx-auto">
-        {suports && suports.length > 0 ? (
+        {supports && supports.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {suports.map(renderSupportCard)}
+            {supports.map(renderSupportCard)}
           </div>
         ) : (
           <div className="text-center py-10">
