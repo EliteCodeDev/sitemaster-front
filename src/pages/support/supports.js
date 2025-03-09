@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Loader from '../../components/loaders/OrderSkeleton';
-import { VideoCameraIcon, PhoneIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
-import { EnvelopeIcon } from '@heroicons/react/24/outline';
+import {
+  VideoCameraIcon,
+  PhoneIcon,
+  ChatBubbleLeftRightIcon,
+  EnvelopeIcon,
+} from '@heroicons/react/24/outline';
 import { useStrapiData } from '../../services/strapiService';
 
 function classNames(...classes) {
@@ -50,7 +54,12 @@ export default function Supports() {
 
   // Manejar clic en botón
   const handleButtonClick = (url) => {
-    if (url.startsWith('http') || url.startsWith('https') || url.startsWith('mailto') || url.startsWith('tel')) {
+    if (
+      url?.startsWith('http') ||
+      url?.startsWith('https') ||
+      url?.startsWith('mailto') ||
+      url?.startsWith('tel')
+    ) {
       // Para URLs externas, abrimos en nueva pestaña
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
@@ -77,7 +86,8 @@ export default function Supports() {
             : 'bg-white border border-gray-200'
         )}
       >
-        {support.featured && (
+        {/* SOLO APARECE SI ES featured && NOMBRE === "Atención al cliente" */}
+        {support.featured && support.name === 'Atención al cliente' && (
           <div className="absolute right-0 top-12">
             <div className="relative">
               <div className="bg-[var(--app-primary)] text-white text-xs font-bold py-1 px-3 rounded-l-lg shadow-md">
@@ -87,10 +97,14 @@ export default function Supports() {
           </div>
         )}
 
-        <div className={classNames(
-          support.featured ? 'border-b-2 border-[var(--app-primary)]/30' : 'bg-gray-100',
-          'p-4'
-        )}>
+        <div
+          className={classNames(
+            support.featured
+              ? 'border-b-2 border-[var(--app-primary)]/30'
+              : 'bg-gray-100',
+            'p-4'
+          )}
+        >
           <h3 id={support.id} className="text-xl font-bold text-center text-gray-900">
             {support.name}
           </h3>
@@ -101,9 +115,7 @@ export default function Supports() {
             {getIconByType(support.icon)}
           </div>
 
-          <p className="text-gray-600 text-center mb-4">
-            {support.description}
-          </p>
+          <p className="text-gray-600 text-center mb-4">{support.description}</p>
 
           <div className="mt-auto pt-6">
             {support.price && (
@@ -126,7 +138,7 @@ export default function Supports() {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8">
+    <div className="w-full">
       <div className="text-center mb-10 pb-5">
         <h2 className="font-bold text-gray-900 text-4xl mb-3">
           Nuestros canales de soporte
@@ -137,14 +149,16 @@ export default function Supports() {
       </div>
 
       {/* Contenedor de tarjetas sin fondo, en grid responsivo */}
-      <div className="bg-transparent pb-6 w-full mx-auto">
+      <div className="bg-transparent pb-6 w-full">
         {supports && supports.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {supports.map(renderSupportCard)}
           </div>
         ) : (
           <div className="text-center py-10">
-            <p className="text-gray-500">No hay canales de soporte disponibles en este momento.</p>
+            <p className="text-gray-500">
+              No hay canales de soporte disponibles en este momento.
+            </p>
           </div>
         )}
       </div>
