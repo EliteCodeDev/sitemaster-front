@@ -11,7 +11,7 @@ export const navigation = [
 
 export const userNavigation = [
   { name: "Tu perfil", href: "/profile" },
-  { name: "Facturación", href: "/billing" },
-  { name: "Reportes", href: "https://status.wazend.net/", external: true },
+  { name: "Facturación", href: "/billing" , external: true},
+//  { name: "Facturación", href: "https://status.wazend.net/", external: true },
   { name: "Cerrar sesión", href: "/", signOut: true },
 ];
