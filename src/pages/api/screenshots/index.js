@@ -1,4 +1,3 @@
-import { Viewport } from "@radix-ui/react-select";
 import { userAgent } from "next/server";
 
 // pages/api/screenshot.js
