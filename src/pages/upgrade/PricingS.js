@@ -11,6 +11,8 @@ function classNames(...classes) {
 
 export default function SubscriptionPlans() {
   const { data: session } = useSession();
+  const name = session?.user?.name || '';
+
   const email = session?.user?.email || '';
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +45,7 @@ export default function SubscriptionPlans() {
       alert('Debes iniciar sesión para continuar.');
       return;
     }
-    const checkoutUrl = `${baseUrl}?billing_email=${encodeURIComponent(email)}`;
+    const checkoutUrl = `${baseUrl}?name=${name}&email=${encodeURIComponent(email)}`;
     setLoading(true);
     setShowModal(true);
     setTimeout(() => {
@@ -59,14 +61,14 @@ export default function SubscriptionPlans() {
       <div
         key={product.id}
         className={classNames(
-          'relative rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl h-full',
+          'relative rounded-xl bg-white overflow-hidden transition-all duration-300 hover:shadow-xl h-full',
           product.featured
             ? 'bg-gradient-to-br from-white via-purple-50 to-[var(--app-primary)]/10 shadow-lg'
             : 'bg-white border border-gray-200'
         )}
       >
         {product.featured && (
-          <div className="absolute right-0 top-12">
+          <div className="absolute right-0  top-12">
             <div className="relative">
               <div className="bg-[var(--app-primary)] text-white text-xs font-bold py-1 px-3 rounded-l-lg shadow-md">
                 Recomendado
@@ -136,7 +138,7 @@ export default function SubscriptionPlans() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="mx-auto max-w-7xl  px-4 py-8">
       <div className="text-center mb-10">
         <h2 className="font-bold text-gray-900 text-4xl mb-3">
           Elige un plan
@@ -148,10 +150,10 @@ export default function SubscriptionPlans() {
 
       {/* Selector de período de facturación estilizado */}
       <div className="flex justify-center mb-12">
-        <div className="inline-flex p-1.5 rounded-full bg-gray-100 shadow-inner">
+        <div className="inline-flex px-1.5 rounded-full bg-white shadow-inner">
           <button
             onClick={() => setBillingPeriod('mensual')}
-            className={`px-8 py-3 text-lg font-medium rounded-full transition-all ${billingPeriod === 'mensual'
+            className={`px-8 py-3 text-md font-medium rounded-full transition-all ${billingPeriod === 'mensual'
               ? 'bg-[var(--app-primary)] text-white shadow-md'
               : 'text-gray-700 hover:bg-gray-200'
               }`}
@@ -160,7 +162,7 @@ export default function SubscriptionPlans() {
           </button>
           <button
             onClick={() => setBillingPeriod('anual')}
-            className={`px-8 py-3 text-lg font-medium rounded-full transition-all ${billingPeriod === 'anual'
+            className={`px-8 py-3 text-md font-medium rounded-full transition-all ${billingPeriod === 'anual'
               ? 'bg-[var(--app-primary)] text-white shadow-md'
               : 'text-gray-700 hover:bg-gray-200'
               }`}
@@ -173,7 +175,7 @@ export default function SubscriptionPlans() {
       {/* Contenedor de tarjetas sin fondo, en grid responsivo */}
       <div className="bg-transparent pb-6 w-full mx-auto">
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {filteredProducts.map(renderProductCard)}
           </div>
         ) : (

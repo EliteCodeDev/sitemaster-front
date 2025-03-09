@@ -127,7 +127,7 @@ export default function User() {
       </div>
 
       <div className="w-full max-w-3xl mx-auto bg-white card-border">
-        <div className="flex flex-col p-10">
+        <div className="flex flex-col p-4">
           <div className="flex items-center space-x-4">
             <LogoGravatar
               email={session.user.email}
@@ -143,7 +143,7 @@ export default function User() {
 
 
       <div className="mt-6 w-full max-w-3xl mx-auto bg-white card-border">
-        <div className="flex flex-col p-10">
+        <div className="flex flex-col p-4">
           <p className="text-lg font-semibold text-black mb-2">Información del perfil</p>
           <p className="text-gray-500 text-sm mb-8">
             Actualice la información del perfil y la dirección de correo electrónico de su cuenta.
@@ -232,7 +232,7 @@ export default function User() {
 
 
       <div className="mt-6 w-full max-w-3xl mx-auto bg-white card-border">
-        <div className="flex flex-col p-10">
+        <div className="flex flex-col p-4">
           <p className="text-lg font-semibold text-black mb-2">Actualizar contraseña</p>
           <p className="text-gray-500 text-sm mb-8">
             Asegúrese de que su cuenta utilice una contraseña larga y aleatoria para mantenerla segura.
