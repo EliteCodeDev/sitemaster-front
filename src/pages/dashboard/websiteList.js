@@ -213,24 +213,32 @@ const FetchWebsites = () => {
 
             {sub.websites?.length > 0 ? (
               <div className="grid grid-cols-1 gap-4 mt-4">
-                {sub.websites.map((website, idx) => (
-                  <WebsiteCard
-                    key={idx}
-                    websiteId={website.websiteId}
-                    websiteName={website.websiteName}
-                    statusWoo={sub.status_woo}
-                    endDate={sub.next_payment_date_gmt}
-                    serverUrl={website.server_url}
-                    purpose={website.purpose}
-                    description={website.description}
-                    domainName={website.domainName}
-                    domainExtension={website.domainExtension}
-                  />
-                ))}
+                {sub.websites.map((website, idx) => {
+                  // Validamos si status_woo es exactamente "active"
+                  const statusWoo = sub.status_woo === "active";
+
+                  return (
+                    <WebsiteCard
+                      key={idx}
+                      websiteId={website.websiteId}
+                      websiteName={website.websiteName}
+                      statusWoo={statusWoo}
+                      endDate={sub.next_payment_date_gmt}
+                      serverUrl={website.server_url}
+                      purpose={website.purpose}
+                      description={website.description}
+                      domainName={website.domainName}
+                      domainExtension={website.domainExtension}
+                    />
+                  );
+                })}
               </div>
             ) : (
-              <p className="text-sm text-gray-500 mt-2">Esta suscripción no tiene sitios web asociados.</p>
+              <p className="text-sm text-gray-500 mt-2">
+                Esta suscripción no tiene sitios web asociados.
+              </p>
             )}
+
           </div>
         ))}
     </div>
