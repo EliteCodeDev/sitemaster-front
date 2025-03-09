@@ -6,7 +6,6 @@ import {
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
 import ScreenshotImage from '@/components/interfaz/ScreenshotImage';
-import { WordPressIcon } from '@/components/interfaz/Icons'; '../../components/interfaz/Icons';
 
 const WebsiteCard = ({
   websiteId,
