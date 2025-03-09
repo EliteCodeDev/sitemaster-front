@@ -9,9 +9,10 @@ import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import Layout from '../../components/layout/auth';
 import Spin from '../../components/loaders/spin';
 import SignSocial from '../../components/SignSocial';
+import { strapiUrl } from '@/routes/routes';
+import Cbutton from '@/components/interfaz/Cbutton';
 
-
-const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+// const strapiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function SignUp() {
   const router = useRouter();
@@ -241,27 +242,27 @@ export default function SignUp() {
             </div>
 
             <div>
-              <button
+              <Cbutton
                 type="submit"
                 disabled={isSubmitting || !isPasswordValid()}
+                // classType={"primary"}
                 className={`text-white w-full justify-center inline-flex items-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--app-primary)] ${isSubmitting || !isPasswordValid() ? 'bg-gray-400 cursor-not-allowed' : 'bg-[var(--app-primary)] hover:bg-[var(--app-primary-hovered)] focus:ring-[var(--app-primary)]'
                   }`}
               >
                 {isSubmitting ? (
                   <>
-                    <Spin />
-                    Regístrate
                   </>
                 ) : (
                   'Regístrate'
                 )}
-              </button>
+              </Cbutton>
             </div>
           </form>
 
-          {/* Botón para iniciar sesión con GitHub */}
+          {/* Botón para iniciar sesión con GitHub o Google*/}
+          {/*
           <SignSocial />
-
+          */}
 
           <p className="mt-10 text-sm text-center leading-6 text-gray-500 dark:text-gray-400">
             ¿Tienes una cuenta?{' '}

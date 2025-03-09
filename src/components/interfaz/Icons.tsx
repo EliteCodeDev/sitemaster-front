@@ -8,14 +8,14 @@ export function MainIcon() {
         <Image
           className="block h-8 w-auto lg:hidden dark:hidden"
           src="/images/icon-dark.svg"
-          alt="Wazend Logo"
+          alt="SiteMaster Logo"
           width={236}
           height={60}
         />
         <Image
           className="hidden h-8 w-auto lg:block dark:hidden"
           src="/images/icon-dark.svg"
-          alt="Wazend Logo"
+          alt="SiteMaster Logo"
           width={236}
           height={60}
         />
@@ -23,7 +23,7 @@ export function MainIcon() {
         <Image
           className="hidden dark:block h-8 w-auto"
           src="/images/icon-light.svg"
-          alt="Wazend Logo"
+          alt="SiteMaster Logo"
           width={236}
           height={60}
         />

@@ -1,9 +1,10 @@
 import Layout from '../components/layout/dashboard';
-import ListInstances from './dashboard/instanceList';
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Featured from './dashboard/Featured';
+import ListInstances from './dashboard/subsList';
+import ListWebsites from './dashboard/websiteList';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -14,16 +15,25 @@ export default function Index() {
 
 
   return (
-    <Layout title="Tus instancias">
+    <Layout title="Tus websites">
 
 
       <div className="flex flex-col space-y-10">
-        <ListInstances />
-        <Featured />
+
+          {/*
+          <div>
+            <ListInstances />
+          </div>
+          */}
+          <div>
+            <ListWebsites />
+          </div>
+          {/*
+          <Featured />
+          */}
       </div>
 
 
     </Layout>
   );
 };
-

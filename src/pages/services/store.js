@@ -30,7 +30,7 @@ const Services = () => {
                     href={`/stores/${store.documentId || store.id}`}
                     target={store.documentId ? '_self' : '_blank'}
                     rel={store.documentId ? '' : 'noopener noreferrer'}
-                    className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-200"
+                    className="bg-white card-border p-6 hover:shadow-lg transition-shadow duration-200"
                 >
                     <div className="flex items-center mb-2">
                         {store.image ? (

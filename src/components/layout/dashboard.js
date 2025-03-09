@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { PlusIcon } from '@heroicons/react/20/solid';
 import WhatsAppButton from "../../components/WhatsAppButton";
 import Biblia from "../Bible"
-import ToggleMode from "../ui/toggle-mode"
+import Cbutton from "@/components/interfaz/Cbutton";
+
 
 
 export default function Layout({ children, title }) {
@@ -20,11 +21,17 @@ export default function Layout({ children, title }) {
                         <div className="mx-auto max-w-7xl py-5 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                             <h1 className="text-xl sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{title}</h1>
                             <Link
-                                href="/upgrade/"
-                                className="inline-flex items-center rounded-md bg-[var(--app-primary)] px-3 py-2 text-white shadow-sm hover:bg-[var(--app-primary-hovered)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--app-primary)]"
-                            >
-                                <PlusIcon className="h-5 w-auto" aria-hidden="true" />
-                                <span className="ml-2 hidden sm:block text-sm font-medium">Crea una instancia</span>
+                                href='/upgrade/'>
+                                <Cbutton
+                                    // className=""
+                                    classType={"primary"}
+                                    className={""}
+                                    startContent={
+                                        <PlusIcon className="h-5" />
+                                    }
+                                >
+                                    <span className="">Nueva Website</span>
+                                </Cbutton>
                             </Link>
                         </div>
                     </header>

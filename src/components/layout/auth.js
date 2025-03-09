@@ -6,15 +6,17 @@ import Image from 'next/image';
 import ToggleMode from '../ui/toggle-mode';
 
 const Layout = ({ children }) => {
+  const siteName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'business-name';
+
   return (
     <div className="h-screen bg-white dark:bg-zinc-900">
       <div className="flex min-h-full flex-1">
 
-      <div className="relative hidden w-1/2 lg:block">
+        <div className="relative hidden w-1/2 lg:block">
           <Image
             className="absolute inset-0 h-full w-full object-cover"
             src="/images/bg-register.webp"
-            alt="Wazend Login Background"
+            alt={`${siteName} Login Background`}
             width={960} // Ajusta el ancho deseado
             height={1080} // Ajusta la altura deseada
           />
@@ -27,14 +29,14 @@ const Layout = ({ children }) => {
               <Image
                 className="h-8 w-auto dark:hidden"
                 src="/images/logo-light.svg"
-                alt="Wazend Logo - Light"
+                alt={`${siteName} Logo - Light`}
                 width={236}
                 height={60}
               />
               <Image
                 className="h-8 w-auto hidden dark:block"
                 src="/images/logo-dark.svg"
-                alt="Wazend Logo - Dark"
+                alt={`${siteName} Logo - Dark`}
                 width={236}
                 height={60}
               />

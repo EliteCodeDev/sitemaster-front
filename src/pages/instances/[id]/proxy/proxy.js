@@ -4,6 +4,8 @@ import { Switch } from "@headlessui/react";
 import { toast } from "sonner";
 import Preload from "@/components/loaders/OrderSkeleton";
 
+import Cinput from '@/components/interfaz/Cinput';
+
 const API_KEY = process.env.NEXT_PUBLIC_WAZEND_API_KEY;
 const API_URL = process.env.NEXT_PUBLIC_WAZEND_API_URL;
 
@@ -124,7 +126,7 @@ const ProxySettings = ({ name }) => {
   if (!data && data !== null) return <Preload />;
 
   return (
-    <div className="rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)] p-6">
+    <div className="card-border bg-white">
       {/* Toggle Switch */}
       <div className="flex items-center justify-between mb-4">
         <div>
@@ -160,6 +162,7 @@ const ProxySettings = ({ name }) => {
         </div>
         <div className="col-span-2">
           <label className="block text-sm font-medium text-gray-700 mb-1">Host</label>
+          {/*
           <input
             type="text"
             name="host"
@@ -167,12 +170,22 @@ const ProxySettings = ({ name }) => {
             value={proxyData.host}
             onChange={handleChange}
           />
+          */}
+          <Cinput
+            classType="primary"
+            type="text"
+            name="host"
+            value={proxyData.host}
+            onChange={handleChange}
+            inputSize="large"
+          />
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-4 mt-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Port</label>
+          {/*
           <input
             type="number"
             name="port"
@@ -180,12 +193,23 @@ const ProxySettings = ({ name }) => {
             value={proxyData.port}
             onChange={handleChange}
           />
+          */}
+          <Cinput
+            classType="primary"
+            type="number"
+            name="port"
+            value={proxyData.port}
+            onChange={handleChange}
+            inputSize="large" // o "small" o "large"
+          />
+
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4 border-t border-gray-300 pt-4 mt-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+          {/*
           <input
             type="text"
             name="username"
@@ -193,15 +217,34 @@ const ProxySettings = ({ name }) => {
             value={proxyData.username}
             onChange={handleChange}
           />
+          */}
+          <Cinput
+            classType="primary"
+            type="text"
+            name="username"
+            value={proxyData.username}
+            onChange={handleChange}
+            inputSize="large"
+          />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          {/*
           <input
             type="text"
             name="password"
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[var(--app-primary)]"
             value={proxyData.password}
             onChange={handleChange}
+          />
+          */}
+          <Cinput
+            classType="primary"
+            type="password"
+            name="password"
+            value={proxyData.password}
+            onChange={handleChange}
+            inputSize="large"
           />
         </div>
       </div>

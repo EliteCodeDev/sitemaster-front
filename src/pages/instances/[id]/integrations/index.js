@@ -15,7 +15,7 @@ export default function Index() {
         <Layout>
             <LayoutGeneral>
 
-                <div className="rounded-lg bg-white shadow-[0_0_5px_rgba(0,0,0,0.1)] p-6 mb-6">
+                <div className="card-border bg-white mb-6">
                     <h2 className="text-2xl font-bold text-gray-900">Integraciones</h2>
                 </div>
 

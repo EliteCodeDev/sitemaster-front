@@ -6,24 +6,11 @@ import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import LogoGravatar from '../components/LogoGravatar'
-import ToggleMode from '../components/ui/toggle-mode'
-import Cbutton from '../components/interfaz/cbutton'
+import Cbutton from '../components/interfaz/Cbutton'
 import { MainIcon } from './interfaz/Icons'
+import { navigation, userNavigation } from '@/routes/routes'
 
 
-const navigation = [
-  { name: 'Prueba gratis', href: '/trial', trial: true },
-  { name: 'Tus instancias', href: '/' },
-  { name: 'Servicios', href: '/services' },
-  { name: 'Documentación', href: 'https://docs.wazend.net/', external: true },
-]
-
-const userNavigation = [
-  { name: 'Tu perfil', href: '/profile' },
-  { name: 'Facturación', href: '/billing' },
-  { name: 'Reportes', href: 'https://status.wazend.net/', external: true },
-  { name: 'Cerrar sesión', href: '/', signOut: true }
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -79,7 +66,7 @@ export default function Navbar() {
                         target={item.external ? "_blank" : undefined}
                       >
                         {item.trial ? (
-                          <Cbutton className="bg-[var(--app-primary)] text-white px-2 py-1 rounded-lg">
+                          <Cbutton className="bg-[var(--app-primary)] text-white px-2 py-1 h-7 rounded-lg">
                             {item.name}
                           </Cbutton>
                         ) : (
@@ -145,8 +132,7 @@ export default function Navbar() {
                     </>
                   )}
 
-                  {/* Botón para alternar Modo Oscuro */}
-                  {/* <ToggleMode /> */}
+                
                 </div>
 
                 {/* Botón menú móvil */}
