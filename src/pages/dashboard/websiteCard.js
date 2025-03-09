@@ -9,27 +9,25 @@ import ScreenshotImage from '@/components/interfaz/ScreenshotImage';
 const WebsiteCard = ({
   websiteId,
   websiteName,
-  statusWoo,
+  statusWoo,       // true/false según tu lógica
   endDate,
-  serverUrl,
+  serverUrl,       // ← USAMOS ESTO COMO DOMINIO
   purpose,
   description,
-  domainName,
-  domainExtension,
+  // domainName,
+  // domainExtension,
 }) => {
-  // Dominio completo (p.ej. "midominio.com")
-  const fullDomain =
-    domainName && domainExtension
-      ? `${domainName}.${domainExtension}`
-      : 'No configurado';
+  // Si serverUrl está definido, úsalo; si no, "No configurado".
+  // Ejemplo: "neocapitalfunding.com"
+  const fullDomain = serverUrl || 'No configurado';
 
   // Fecha de renovación en formato "Apr 7, 2025"
   const renewalDate = endDate
     ? new Date(endDate).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    })
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      })
     : 'No definido';
 
   return (
@@ -37,8 +35,9 @@ const WebsiteCard = ({
       {/* IMAGEN: Arriba en móvil, izquierda en desktop */}
       <div className="w-full md:w-auto justify-center md:justify-start md:flex hidden">
         <ScreenshotImage
-          url={`https://${fullDomain}`}
-          className="rounded object-cover"
+          // Si "fullDomain" ya trae "https://", quítalo aquí o ajusta tu lógica:
+          url={`https://${fullDomain.replace(/^https?:\/\//, '')}`}
+          className="rounded bg-cover bg-center"
           width={130}
           height={80}
           alt={`https://${fullDomain}`}
@@ -47,11 +46,11 @@ const WebsiteCard = ({
       </div>
 
       {/* CENTRO: Datos del sitio */}
-      <div className="flex flex-col md:items-start md:justify-center gap-2">
+      <div className="flex flex-col md:items-start md:justify-center">
         {/* Dominio con ícono para abrir en nueva pestaña */}
         <div className="flex items-center font-semibold space-x-2 text-md text-[color:var(--app-primary)]">
           <Link
-            href={`https://${fullDomain}`}
+            href={`https://${fullDomain.replace(/^https?:\/\//, '')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"
@@ -59,7 +58,7 @@ const WebsiteCard = ({
             {fullDomain}
           </Link>
           <Link
-            href={`https://${fullDomain}`}
+            href={`https://${fullDomain.replace(/^https?:\/\//, '')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 hover:text-gray-700"
@@ -96,9 +95,13 @@ const WebsiteCard = ({
       </div>
 
       {/* BOTONES: Abajo en móvil, derecha en desktop */}
-      <div className="flex md:ml-auto mt-2 md:mt-0  gap-4">
+      <div className="flex md:ml-auto mt-2 md:mt-0 gap-4">
         {/* Botón de abrir */}
-        <Link href={`https://${fullDomain}`} passHref className="w-full sm:w-auto">
+        <Link
+          href={`https://${fullDomain.replace(/^https?:\/\//, '')}`}
+          passHref
+          className="w-full sm:w-auto"
+        >
           <button className="w-full hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
             <ArrowTopRightOnSquareIcon className="h-6 w-6" />
             <span>Abrir</span>
@@ -107,7 +110,11 @@ const WebsiteCard = ({
 
         {/* Botón de ajustes o mensaje de expirado */}
         {statusWoo ? (
-          <Link href={`/websites/${websiteId}/dashboard`} passHref className="w-full sm:w-auto">
+          <Link
+            href={`/websites/${websiteId}/dashboard`}
+            passHref
+            className="w-full sm:w-auto"
+          >
             <button className="w-full hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
               <Cog6ToothIcon className="h-6 w-6" />
               <span>Ajustes</span>
