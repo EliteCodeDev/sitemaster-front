@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
         <div className="relative hidden w-1/2 lg:block">
           <Image
             className="absolute inset-0 h-full w-full object-cover"
-            src="/images/bg-register.webp"
+            src="/images/bg-login.png"
             alt={`${siteName} Login Background`}
             width={960} // Ajusta el ancho deseado
             height={1080} // Ajusta la altura deseada
