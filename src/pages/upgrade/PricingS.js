@@ -16,7 +16,7 @@ export default function SubscriptionPlans() {
   const email = session?.user?.email || '';
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [billingPeriod, setBillingPeriod] = useState('mensual');
+  const [billingPeriod, setBillingPeriod] = useState('anual');
 
   // Obtenemos los datos de la tabla "products" de Strapi
   const { data: products, error, isLoading } = useStrapiData('products?sort[0]=price:asc');
@@ -45,7 +45,7 @@ export default function SubscriptionPlans() {
       alert('Debes iniciar sesión para continuar.');
       return;
     }
-    const checkoutUrl = `${baseUrl}?name=${name}&email=${encodeURIComponent(email)}`;
+    const checkoutUrl = `${baseUrl}&name=${name}&email=${encodeURIComponent(email)}`;
     setLoading(true);
     setShowModal(true);
     setTimeout(() => {
@@ -77,10 +77,12 @@ export default function SubscriptionPlans() {
           </div>
         )}
 
-        <div className={classNames(
-          product.featured ? 'border-b-2 border-[var(--app-primary)]/30' : 'bg-gray-100',
-          'p-4'
-        )}>
+        <div
+          className={classNames(
+            product.featured ? 'border-b-2 border-[var(--app-primary)]/30' : 'bg-gray-100',
+            'p-4'
+          )}
+        >
           <h3 id={product.id} className="text-xl font-bold text-center text-gray-900">
             {product.name}
           </h3>
@@ -89,18 +91,26 @@ export default function SubscriptionPlans() {
         <div className="p-6">
           <div className="flex justify-center">
             <p className="flex items-baseline">
-              <span className={classNames(
-                product.featured ? 'text-[var(--app-primary)]' : 'text-gray-900',
-                'text-4xl font-bold tracking-tight'
-              )}>
-                ${product.price}/mes
+              <span
+                className={classNames(
+                  product.featured ? 'text-[var(--app-primary)]' : 'text-gray-900',
+                  'text-4xl font-bold tracking-tight'
+                )}
+              >
+                {billingPeriod === 'anual'
+                  ? `${(product.price / 12).toFixed(2)}/mes`
+                  : `${product.price}/mes`}
               </span>
             </p>
           </div>
 
-          <p className="text-gray-600 mt-2 text-sm text-center font-medium">
-            {product.billing_period}
-          </p>
+          {billingPeriod === 'anual' && (
+            <span className="block text-xs text-gray-600 text-center mt-1">
+              {(product.price).toFixed(2)}/anual
+            </span>
+          )}
+
+          <p className="text-gray-600 mt-2 text-sm text-center font-medium">{product.billing_period}</p>
 
           {/* Si deseas mostrar características (features), descomenta: */}
           <div className="mt-6 space-y-4">
@@ -122,12 +132,13 @@ export default function SubscriptionPlans() {
             <button
               onClick={() => handleCheckout(product.url)}
               disabled={loading}
-              className={`w-full block rounded-lg py-3 px-3 text-center text-md font-semibold leading-6 transition-all duration-200 ${loading
-                ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                : product.featured
+              className={`w-full block rounded-lg py-3 px-3 text-center text-md font-semibold leading-6 transition-all duration-200 ${
+                loading
+                  ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                  : product.featured
                   ? 'bg-[var(--app-primary)] text-white shadow-md hover:shadow-lg hover:bg-[var(--app-primary)]/90'
                   : 'bg-white text-[var(--app-primary)] border border-[var(--app-primary)] hover:bg-[var(--app-primary)]/5'
-                }`}
+              }`}
             >
               {loading ? 'Cargando...' : 'Seleccionar plan'}
             </button>
