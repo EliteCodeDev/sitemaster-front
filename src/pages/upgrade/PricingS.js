@@ -88,9 +88,20 @@ export default function SubscriptionPlans() {
           </h3>
         </div>
 
+
+        <div className="text-center">
+          <h2 className="font-bold text-gray-900 text-md mb-3">
+          {product.description}
+          </h2>
+        </div>
+
+
+
         <div className="p-6">
           <div className="flex justify-center">
+
             <p className="flex items-baseline">
+
               <span
                 className={classNames(
                   product.featured ? 'text-[var(--app-primary)]' : 'text-gray-900',
@@ -106,39 +117,30 @@ export default function SubscriptionPlans() {
 
           {billingPeriod === 'anual' && (
             <span className="block text-xs text-gray-600 text-center mt-1">
-              {(product.price).toFixed(2)}/anual
+              En planes de 12 meses {(product.price).toFixed(2)}/anual
             </span>
           )}
 
-          <p className="text-gray-600 mt-2 text-sm text-center font-medium">{product.billing_period}</p>
-
-          {/* Si deseas mostrar características (features), descomenta: */}
-          <div className="mt-6 space-y-4">
-            {product.features?.map((feature, index) => (
-              <div key={index} className="flex items-start">
-                <CheckIcon
-                  className={classNames(
-                    product.featured ? 'text-[var(--app-primary)]' : 'text-green-500',
-                    'h-5 w-5 flex-shrink-0 mt-0.5'
-                  )}
-                  aria-hidden="true"
-                />
-                <span className="ml-3 text-sm text-gray-700">{feature}</span>
-              </div>
-            ))}
+          <div className="mt-2 text-xs text-gray-500 text-center">
+            <ul>
+              {product?.features?.map((feature, index) => (
+                <li key={index} className="flex  gap-2">
+                  <CheckIcon className="w-4 h-4 text-green-500" />
+                  <span>{feature}</span>
+                </li>
+              )) || null}
+            </ul>
           </div>
-
           <div className="mt-8">
             <button
               onClick={() => handleCheckout(product.url)}
               disabled={loading}
-              className={`w-full block rounded-lg py-3 px-3 text-center text-md font-semibold leading-6 transition-all duration-200 ${
-                loading
+              className={`w-full block rounded-lg py-3 px-3 text-center text-md font-semibold leading-6 transition-all duration-200 ${loading
                   ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
                   : product.featured
-                  ? 'bg-[var(--app-primary)] text-white shadow-md hover:shadow-lg hover:bg-[var(--app-primary)]/90'
-                  : 'bg-white text-[var(--app-primary)] border border-[var(--app-primary)] hover:bg-[var(--app-primary)]/5'
-              }`}
+                    ? 'bg-[var(--app-primary)] text-white shadow-md hover:shadow-lg hover:bg-[var(--app-primary)]/90'
+                    : 'bg-white text-[var(--app-primary)] border border-[var(--app-primary)] hover:bg-[var(--app-primary)]/5'
+                }`}
             >
               {loading ? 'Cargando...' : 'Seleccionar plan'}
             </button>
