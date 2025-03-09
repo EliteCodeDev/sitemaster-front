@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
       <Head>
-        <title>{process.env.NEXT_PUBLIC_SITE_TITLE}</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
       </Head>
       <ThemeProvider
         attribute="class"

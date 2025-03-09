@@ -6,7 +6,7 @@ import Image from 'next/image';
 import ToggleMode from '../ui/toggle-mode';
 
 const Layout = ({ children }) => {
-  const siteName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'business-name';
+  const siteName = process.env.NEXT_PUBLIC_APP_NAME || 'business-name';
 
   return (
     <div className="h-screen bg-white dark:bg-zinc-900">
