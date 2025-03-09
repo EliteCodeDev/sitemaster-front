@@ -126,8 +126,8 @@ export default function Supports() {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
-      <div className="text-center mb-10">
+    <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-10 pb-5">
         <h2 className="font-bold text-gray-900 text-4xl mb-3">
           Nuestros canales de soporte
         </h2>
