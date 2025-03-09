@@ -4,7 +4,7 @@ export const navigation = [
   // { name: "Prueba gratis", href: "/trial", trial: true },
   { name: "Tus Websites", href: "/" },
   { name: "Tus VPS", href: "/vps" },
-  { name: "Servicios", href: "/services" },
+  //{ name: "Servicios", href: "/services" },
   { name: "Soporte", href: "/support" },
   // { name: "Soporte", href: "https://docs.wazend.net/", external: true },
 ];
