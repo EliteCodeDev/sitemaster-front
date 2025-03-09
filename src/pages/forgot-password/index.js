@@ -90,6 +90,8 @@ export default function ForgotPassword() {
             <Cbutton
               classType={"primary"}
               type="submit"
+              className="w-full"
+
               isLoading={isSubmitting}
               isSubmitting={isSubmitting}
             >
