@@ -32,7 +32,7 @@ const WebsiteCard = ({
     : 'No definido';
 
   return (
-    <div className="flex items-center bg-white rounded-md shadow-md gap-4 p-6">
+    <div className="flex items-center card-border bg-white">
       {/* IZQUIERDA: Placeholder confetti o imagen */}
       <div className="w-12 h-12 rounded-md overflow-hidden flex-shrink-0 bg-orange-200">
       </div>

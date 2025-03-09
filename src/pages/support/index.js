@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/dashboard'
 import React from 'react'
-import Supports from './suports'
+import Supports from './supports'
 
 export default function Index() {
   return (
