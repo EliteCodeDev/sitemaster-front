@@ -107,7 +107,7 @@ const WebsiteCard = ({
       <div className="flex md:ml-auto mt-2 md:mt-0 gap-4">
         {/* Si está en progreso, solo mostrar "Configuración" */}
         {isActived === 'progress' ? (
-          <button className="w-full sm:w-auto hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-yellow-50 text-yellow-700 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
+          <button className="w-full sm:w-auto hover:shadow-lg transition-shadow duration-300 border border-gray-200  px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
             <Cog6ToothIcon className="h-6 w-6" />
             <span>Configuración</span>
           </button>
