@@ -61,14 +61,14 @@ export default function SubscriptionPlans() {
       <div
         key={product.id}
         className={classNames(
-          'relative rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl h-full',
+          'relative rounded-xl bg-white overflow-hidden transition-all duration-300 hover:shadow-xl h-full',
           product.featured
             ? 'bg-gradient-to-br from-white via-purple-50 to-[var(--app-primary)]/10 shadow-lg'
             : 'bg-white border border-gray-200'
         )}
       >
         {product.featured && (
-          <div className="absolute right-0 top-12">
+          <div className="absolute right-0  top-12">
             <div className="relative">
               <div className="bg-[var(--app-primary)] text-white text-xs font-bold py-1 px-3 rounded-l-lg shadow-md">
                 Recomendado
@@ -138,7 +138,7 @@ export default function SubscriptionPlans() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="mx-auto max-w-7xl  px-4 py-8">
       <div className="text-center mb-10">
         <h2 className="font-bold text-gray-900 text-4xl mb-3">
           Elige un plan
@@ -175,7 +175,7 @@ export default function SubscriptionPlans() {
       {/* Contenedor de tarjetas sin fondo, en grid responsivo */}
       <div className="bg-transparent pb-6 w-full mx-auto">
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {filteredProducts.map(renderProductCard)}
           </div>
         ) : (
