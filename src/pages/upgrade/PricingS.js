@@ -46,13 +46,7 @@ export default function SubscriptionPlans() {
       alert('Debes iniciar sesión para continuar.');
       return;
     }
-<<<<<<< HEAD
     const checkoutUrl = `${baseUrl}&name=${name}&email=${encodeURIComponent(email)}`;
-=======
-    const checkoutUrl = `${baseUrl}?name=${name}&email=${encodeURIComponent(
-      email
-    )}`;
->>>>>>> 2e0851e09f746a44b7355ea8e7793f803ce98445
     setLoading(true);
     setShowModal(true);
     setTimeout(() => {
