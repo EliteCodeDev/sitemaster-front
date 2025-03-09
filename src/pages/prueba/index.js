@@ -1,9 +1,7 @@
 'use client';
-import { useState, useEffect } from 'react';
-import VpsCard from './VpsCard';
-import Layout from '@/components/layout/dashboard';
-import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 
+import { useState, useEffect } from 'react';
+import VpsCard from "./VpsCard";
 
 export default function ContaboInstances() {
   const [instances, setInstances] = useState([]);
@@ -21,6 +19,7 @@ export default function ContaboInstances() {
         }
 
         const data = await response.json();
+        console.log(data);
         setInstances(data.data || []);
       } catch (err) {
         console.error('Error al obtener instancias:', err);
@@ -33,12 +32,13 @@ export default function ContaboInstances() {
     fetchInstances();
   }, []);
 
-  // if (loading) return <Layout><div className="p-4">Cargando instancias...</div></Layout>;
-  if (loading) return <Layout><OrderSkeleton /></Layout>;
-  if (error) return <Layout><div className="p-4 text-red-500">{error}</div></Layout>;
+  if (loading) return <div className="p-4">Cargando instancias...</div>;
+  if (error) return <div className="p-4 text-red-500">{error}</div>;
 
   return (
-    <Layout title="Tus VPS" >
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Mis Instancias de Contabo</h1>
+
       {instances.length === 0 ? (
         <p>No se encontraron instancias.</p>
       ) : (
@@ -53,12 +53,11 @@ export default function ContaboInstances() {
               vcpus={instance.cpuCores}
               ramMb={instance.ramMb}
               diskMb={instance.diskMb}
-              diskType={instance.productType}
               ipAddress={instance.ipConfig?.v4?.ip || 'N/A'}
             />
           ))}
         </div>
       )}
-    </Layout>
+    </div>
   );
 }
