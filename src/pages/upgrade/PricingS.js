@@ -11,6 +11,8 @@ function classNames(...classes) {
 
 export default function SubscriptionPlans() {
   const { data: session } = useSession();
+  const name = session?.user?.name || '';
+
   const email = session?.user?.email || '';
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +45,7 @@ export default function SubscriptionPlans() {
       alert('Debes iniciar sesión para continuar.');
       return;
     }
-    const checkoutUrl = `${baseUrl}?billing_email=${encodeURIComponent(email)}`;
+    const checkoutUrl = `${baseUrl}?name=${name}&email=${encodeURIComponent(email)}`;
     setLoading(true);
     setShowModal(true);
     setTimeout(() => {
