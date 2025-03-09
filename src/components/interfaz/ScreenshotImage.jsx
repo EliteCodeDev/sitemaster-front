@@ -84,7 +84,7 @@ const ScreenshotImage = ({
   if (loading) {
     return (
       <div
-        className={`screenshot-loader ${className}`}
+        className={`screenshot-loader ${className} w-full h-full grid place-items-center`}
         style={{ width, height }}
       >
         <Spin />

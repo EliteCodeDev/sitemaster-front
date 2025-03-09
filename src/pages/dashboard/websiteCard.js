@@ -35,7 +35,7 @@ const WebsiteCard = ({
   return (
     <div className="flex flex-col md:flex-row md:items-center card-border bg-white p-6 gap-4 w-full mx-auto">
       {/* IMAGEN: Arriba en móvil, izquierda en desktop */}
-      <div className="w-full md:w-auto justify-center md:justify-start md:flex hidden">
+      <div className=" md:w-auto justify-center md:justify-start md:flex hidden w-[130px] h-[80px]">
         <ScreenshotImage
           url={`https://${fullDomain}`}
           className="rounded object-cover"
