@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import ScreenshotImage from '@/components/interfaz/ScreenshotImage';
 const VpsCard = ({
+  documentId,
   instanceId,
   instanceName,
   status,
@@ -28,7 +29,7 @@ const VpsCard = ({
   const formattedDisk = formatMemory(diskMb);
   console.log("diskType", diskType);
   return (
-    <div className="flex flex-col md:flex-row md:items-center card-border bg-white p-6 gap-4 w-full mx-auto">
+    <div className="flex flex-col md:flex-row md:items-center bg-white p-6 gap-4 w-full mx-auto ">
       {/* IMAGEN: Arriba en móvil, izquierda en desktop */}
       <div className="md:w-auto justify-center md:justify-start md:flex hidden w-[130px] h-[80px]">
         <div className="flex items-center justify-center w-[130px] h-[80px] bg-gray-100 rounded">
@@ -98,7 +99,7 @@ const VpsCard = ({
         </Link> */}
 
         {/* Botón de ajustes */}
-        <Link href={`/vps/${instanceId}`} passHref className="w-full sm:w-auto">
+        <Link href={`/vps/${documentId}`} passHref className="w-full sm:w-auto">
           <button className="w-full hover:shadow-lg transition-shadow duration-300 border border-gray-200 bg-white text-slate-900 px-6 py-2 rounded-lg text-base font-semibold shadow-md flex items-center justify-center space-x-2">
             <Cog6ToothIcon className="h-6 w-6" />
             <span>Ajustes</span>

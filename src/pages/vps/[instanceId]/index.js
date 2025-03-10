@@ -21,7 +21,6 @@ import {
   BuildingOfficeIcon,
   CommandLineIcon
 } from '@heroicons/react/24/outline';
-
 export default function VpsDashboard() {
   const router = useRouter();
   const { instanceId } = router.query;
@@ -32,6 +31,8 @@ export default function VpsDashboard() {
   const [actionInProgress, setActionInProgress] = useState(false);
   const [actionResult, setActionResult] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  
+
 
   // Cargar los datos de la instancia
   useEffect(() => {
@@ -40,6 +41,9 @@ export default function VpsDashboard() {
 
       try {
         setLoading(true);
+
+
+
         const response = await fetch(`/api/contabo/${instanceId}`);
 
         if (!response.ok) {
