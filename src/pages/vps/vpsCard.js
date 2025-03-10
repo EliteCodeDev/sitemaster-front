@@ -4,8 +4,7 @@ import {
   Cog6ToothIcon,
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
-import ScreenshotImage from '@/components/interfaz/ScreenshotImage';
-const VpsCard = ({
+export default function VpsCard({
   documentId,
   instanceId,
   instanceName,
@@ -16,7 +15,7 @@ const VpsCard = ({
   diskMb,
   diskType,
   ipAddress,
-}) => {
+}) {
   // Formatear RAM y disco para mostrar en GB si es apropiado
   const formatMemory = (mb) => {
     if (mb >= 1024) {
@@ -109,5 +108,3 @@ const VpsCard = ({
     </div>
   );
 };
-
-export default VpsCard;
