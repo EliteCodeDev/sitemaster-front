@@ -9,7 +9,7 @@ export const config = {
     "/dashboard",
     "/upgrade",
     "/create",
-    "/website/:path*",
+    "/websites/:path*",
     "/vps/:path*",
   ]
 };

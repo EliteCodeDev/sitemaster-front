@@ -1,5 +1,4 @@
 import Layout from '../../components/layout/dashboard';
-import websiteList from "./websiteList";
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

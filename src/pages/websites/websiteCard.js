@@ -9,6 +9,7 @@ import ScreenshotImage from '@/components/interfaz/ScreenshotImage';
 
 const WebsiteCard = ({
   websiteId,
+  documentId,
   websiteName,
   statusWoo,         // true/false según tu lógica
   isActived,         // 'in progress' u otro valor
@@ -128,7 +129,7 @@ const WebsiteCard = ({
             {/* Botón de ajustes o mensaje de expirado */}
             {statusWoo ? (
               <Link
-                href={`/websites/${websiteId}/dashboard`}
+                href={`/websites/${ documentId }/dashboard`}
                 passHref
                 className="w-full sm:w-auto"
               >

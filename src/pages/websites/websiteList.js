@@ -117,6 +117,7 @@ const FetchWebsites = () => {
                   return (
                     <WebsiteCard
                       key={idx}
+                      documentId={website.documentId}
                       websiteId={website.websiteId}
                       websiteName={website.websiteName}
                       statusWoo={statusWoo}

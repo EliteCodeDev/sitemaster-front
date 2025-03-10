@@ -2,7 +2,7 @@ import Layout from '../components/layout/dashboard';
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import ListWebsites from './dashboard/websiteList';
+import ListWebsites from './websites/websiteList';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
