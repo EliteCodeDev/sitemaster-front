@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import VpsCard from './VpsCard';
+import VpsCard from '@/components/interfaz/vps/VpsCard';
 import Layout from '@/components/layout/dashboard';
 import OrderSkeleton from '../../components/loaders/OrderSkeleton';
 import { useSession } from 'next-auth/react';
