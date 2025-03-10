@@ -1,4 +1,4 @@
-// src/pages/vps/[instanceId]/dashboard.js
+// src/pages/vps/[documentId]/dashboard.js
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -21,9 +21,10 @@ import {
   BuildingOfficeIcon,
   CommandLineIcon
 } from '@heroicons/react/24/outline';
+
 export default function VpsDashboard() {
   const router = useRouter();
-  const { instanceId } = router.query;
+  const { documentId } = router.query;
 
   const [instance, setInstance] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,20 +32,16 @@ export default function VpsDashboard() {
   const [actionInProgress, setActionInProgress] = useState(false);
   const [actionResult, setActionResult] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  
-
 
   // Cargar los datos de la instancia
   useEffect(() => {
     async function fetchInstanceDetails() {
-      if (!instanceId) return;
+      if (!documentId) return;
 
       try {
         setLoading(true);
 
-
-
-        const response = await fetch(`/api/contabo/${instanceId}`);
+        const response = await fetch(`/api/contabo/${documentId}`);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
@@ -61,17 +58,17 @@ export default function VpsDashboard() {
     }
 
     fetchInstanceDetails();
-  }, [instanceId, actionResult]);
+  }, [documentId, actionResult]);
 
   // Ejecutar una acción en la instancia
   const executeAction = async (action) => {
-    if (!instanceId || actionInProgress) return;
+    if (!documentId || actionInProgress) return;
 
     try {
       setActionInProgress(true);
       setActionResult(null);
 
-      const response = await fetch(`/api/contabo/${instanceId}/actions/${action}`, {
+      const response = await fetch(`/api/contabo/${documentId}/actions/${action}`, {
         method: 'POST',
       });
 
@@ -144,7 +141,7 @@ export default function VpsDashboard() {
   return (
     <Layout>
       <Head>
-        <title>{instance.name || `VPS ${instanceId}`} - Dashboard</title>
+        <title>{instance.name || `VPS ${instance.instanceId}`} - Dashboard</title>
       </Head>
 
       <div className="max-w-5xl mx-auto p-6">
@@ -160,7 +157,7 @@ export default function VpsDashboard() {
         <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">{instance.name || `VPS ${instanceId}`}</h1>
+              <h1 className="text-2xl font-bold text-gray-800">{instance.name || `VPS ${instance.instanceId}`}</h1>
               <div className="mt-2 flex items-center">
                 <span
                   className={`inline-block w-3 h-3 rounded-full mr-2 ${instance.status === 'running' ? 'bg-green-500' : 'bg-red-500'
